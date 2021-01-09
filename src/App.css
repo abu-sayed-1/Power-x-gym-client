@@ -1,0 +1,8 @@
+.brand_btn {
+  border: none;
+  outline: none;
+  width: 10rem;
+  line-height: 40px;
+  font-weight: 700;
+  background-color: #fcd842;
+}

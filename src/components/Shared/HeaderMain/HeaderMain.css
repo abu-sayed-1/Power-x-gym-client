@@ -1,0 +1,17 @@
+.header_main {
+    background-image: url("../../../images/ImageAndIcon/header-img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.overly {
+    height: 54rem;
+}
+
+.overly {
+    background: rgba(36, 34, 65, 0.603);
+}
+
+.line_height {
+    line-height: 2rem;
+}
