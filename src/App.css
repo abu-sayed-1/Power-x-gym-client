@@ -6,3 +6,14 @@
   font-weight: 700;
   background-color: #fcd842;
 }
+
+.Training_Programs_Btn{
+  border: none;
+  outline: none;
+  line-height: 49px;
+  font-weight: 500;
+  background-color: #fcd842;
+  position: absolute;
+  top: 20rem;
+  box-sizing: border-box;
+}
