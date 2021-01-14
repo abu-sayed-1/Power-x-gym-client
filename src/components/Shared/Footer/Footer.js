@@ -1,40 +1,49 @@
 import React from 'react';
+import "./Footer.css"
 import { Col, Container, Navbar, Row } from 'react-bootstrap';
 
 const Footer = () => {
     return (
-        <Container className="mt-5 pt-5">
-            <Row>
-                <Col>
-                    <Navbar.Brand href="#home" className="brand_name">POWER <span>X</span></Navbar.Brand>
-                </Col>
-                <Col>
-                    <h5>Need Help?</h5>
-                    <a href="/help/center">Help Center</a>
-                    <a href="/email/support">Email Support</a>
-                    <a href="/live/chat">Live Chat</a>
-                    <a href="/gift/certificates">Gift Certificates</a>
-                    <a href="/sendus/feedback">Send Us Feedback</a>
-                </Col>
-                <Col>
-                    <h5>Digital Resources</h5>
-                    <a href="/articles">Articles</a>
-                    <a href="/e-books">E-Books</a>
-                </Col>
-                <Col>
-                    <h2>Connect whit Us</h2>
+        <div className="footer_container">
+            <Container className="mt-5 pt-5">
+                <Row>
+                    <Col>
+                        <Navbar.Brand href="#home" className="brand_name text-white">POWER <span>X</span></Navbar.Brand>
+                    </Col>
+                    <Col>
+                        <h5 className="text-white">Need Help?</h5>
+                        <a className="text-white link_item" href="/help/center">Help Center</a><br />
+                        <a className="text-white link_item" href="/email/support">Email Support</a><br />
+                        <a className="text-white link_item" href="/live/chat">Live Chat</a><br />
+                        <a className="text-white link_item" href="/gift/certificates">Gift Certificates</a><br />
+                        <a className="text-white link_item" href="/sendus/feedback">Send Us Feedback</a>
+                    </Col>
+                    <Col>
+                        <h5 className="text-white">Digital Resources</h5>
+                        <a className="text-white link_item" href="/articles">Articles</a><br />
+                        <a className="text-white link_item" href="/e-books">E-Books</a>
+                    </Col>
+                    <Col>
+                        <h2 className="text-white">Connect whit Us</h2>
+                        <p className="text-white">Forum</p>
 
-                </Col>
-                <Col>
-                    <h5>Join Our Newsletter</h5>
-                    <p>Get exclusive news,features,and
-                    updates from the Shredder Weight
-                    loss Academy
+                    </Col>
+                    <Col>
+                        <h5 className="text-white">Join Our Newsletter</h5>
+                        <p className="text-white">Get exclusive news,features,and
+                        updates from the Shredder Weight
+                        loss Academy
                     </p>
 
-                </Col>
-            </Row>
-        </Container>
+                    </Col>
+                </Row>
+            </Container>
+            <footer className="d-flex justify-content-center">
+                <samp className="text-muted">
+                    © {new Date().getFullYear()} Ahmed LTD, All Rights Reserved.
+                    </samp>
+            </footer>
+        </div>
     );
 };
 

@@ -4,7 +4,7 @@ import { Card, CardDeck, Container } from 'react-bootstrap';
 const ChooseUs = ({ chooseUsData }) => {
     console.log(chooseUsData);
     return (
-        <Container className="mt-5 pt-2">
+        <Container className="mt-5 pt-2 my-5 py-5">
             <h1 className="text-center  my-5 py-5"><span className="text-warning">WHY</span> CHOOSE US</h1>
             <CardDeck className="mt-5">
                 {

@@ -2,7 +2,7 @@ import React from 'react';
 import "./Navbar.css"
 import { Nav, Navbar } from 'react-bootstrap';
 
-const Navbars = () => {
+const NavBar = () => {
     return (
         <div>
             <Navbar className="mx-lg-5 mx-md-5" expand="lg">
@@ -24,4 +24,4 @@ const Navbars = () => {
     );
 };
 
-export default Navbars;
+export default NavBar;
