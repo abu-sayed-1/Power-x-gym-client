@@ -1,10 +1,11 @@
 import React from 'react';
+import { useEffect } from 'react';
 
 const courseLists = [
     {
         id: 1,
         trainingName: 'psycho training',
-        img: ''
+        img: 'https://i.ibb.co/YRK2kDf/victor-freitas-546919-unsplash.png'
     },
     {
         id: 2,
@@ -34,6 +35,14 @@ const courseLists = [
 
 ]
 const CoursesList = () => {
+    useEffect(() => {
+        fetch('http://localhost:4000/coursesList', {
+            method: 'POST',
+            body: JSON.stringify(courseLists),
+            headers: { 'Content-type': 'application/json' }
+        })
+            .then(result => console.log(result, "courses List"))
+    }, [])
     return (
         <div>
             <h2>this is courses list</h2>

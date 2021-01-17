@@ -5,14 +5,14 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import PageNotFound from './components/PageNotFound/PageNotFound';
 import CoursesList from './components/OurClasses/CoursesList/CoursesList';
+import TrainingDetail from './components/OurClasses/TrainingDetail/TrainingDetail';
+import PageNotFound from './components/PageNotFound/PageNotFound';
 function App() {
   return (
-    <div>
       <Router>
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <Home />
           </Route>
           <Route path="/home">
@@ -21,12 +21,14 @@ function App() {
           <Route path="/coursesList">
             <CoursesList />
           </Route>
+          <Route path="/trainingDetail">
+            <TrainingDetail />
+          </Route>
           <Route path="*">
             <PageNotFound />
           </Route>
         </Switch>
       </Router>
-    </div>
   );
 }
 

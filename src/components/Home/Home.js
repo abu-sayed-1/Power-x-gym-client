@@ -8,11 +8,11 @@ import WorkOut from './WorkOut/WorkOut';
 
 const Home = () => {
     const [homePageAllData, setHomePageAllData] = useState(null);
+    console.log(homePageAllData);
     const workOutData = homePageAllData ? homePageAllData.slice(0, 3) : '';
     const ourDreamData = homePageAllData ? homePageAllData.slice(3, 4) : '';
     const TrainingData = homePageAllData ? homePageAllData.slice(4, 6) : '';
     const chooseUsData = homePageAllData ? homePageAllData.slice(6, 9) : '';
-
 
     useEffect(() => {
         fetch("http://localhost:4000/homePageAllData")
