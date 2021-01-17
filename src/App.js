@@ -6,6 +6,7 @@ import {
   Route,
 } from "react-router-dom";
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import CoursesList from './components/OurClasses/CoursesList/CoursesList';
 function App() {
   return (
     <div>
@@ -16,6 +17,9 @@ function App() {
           </Route>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/coursesList">
+            <CoursesList />
           </Route>
           <Route path="*">
             <PageNotFound />
