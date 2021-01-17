@@ -14,22 +14,22 @@ const courseLists = [
     {
         id: 3,
         trainingName: 'advance gym',
-        img: ''
+        img: 'https://i.ibb.co/f0hCqpK/humphrey-muleba-LOA2m-Tj1vhc-unsplash.jpg'
     },
     {
         id: 4,
         trainingName: 'cardio training',
-        img: ''
+        img: 'https://i.ibb.co/fdZN2sK/alora-griffiths-Tuzrz-Arccvc-unsplash.jpg'
     },
     {
         id: 5,
         trainingName: 'strength training',
-        img: ''
+        img: 'https://i.ibb.co/5LWKD5Z/john-fornander-FIu48iuo-4g-unsplash.jpghttps://i.ibb.co/5LWKD5Z/john-fornander-FIu48iuo-4g-unsplash.jpg'
     },
     {
         id: 6,
         trainingName: 'psycho training',
-        img: ''
+        img: 'https://tse3.mm.bing.net/th?id=OIP.Xal5xEgVnt39uwC2nLanSgHaFO&pid=Api&P=0&w=281&h=199'
     }
 
 ]
