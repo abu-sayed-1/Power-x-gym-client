@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './ChooseCourse.css'
 import { useEffect } from 'react';
-import { Container, Card, CardGroup } from 'react-bootstrap';
+import { Container, Card, CardDeck } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import NavBar from '../../Shared/Navbar/NavBar';
 import Footer from '../../Shared/Footer/Footer';
+import { NavLink } from 'react-router-dom';
 
 
 // const ChooseCourseData = [
@@ -75,15 +76,15 @@ const ChooseCourse = () => {
             <section className="header_main mb-5">
                 <div className=" overly">
                     <NavBar />
-                    <h1 className="text-white text-center">PRICING PLANS</h1>
+                    <h1 className="text-white text-center align-self-center">PRICING PLANS</h1>
                 </div>
             </section>
             <Container className="mb-5">
                 <h1 className="text_color text-center">CHOOSE THE OFFER THAT SUITS YOU</h1>
-                <p className="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda <br/> illo quas consequatur unde facilis eligendi atque laudantium doloribus nobis aperiam.</p>
-                <CardGroup className="my-5 py-5">
+                <p className="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda <br /> illo quas consequatur unde facilis eligendi atque laudantium doloribus nobis aperiam.</p>
+                <CardDeck sm={12} md={6} lg={4} xl={4} className="my-5 py-5">
                     {
-                        course ? course.map(item => <Card sm={12} md={6} lg={4} xl={4} key={item._id}>
+                        course ? course.map(item => <Card className=" " key={item._id}>
                             <Card.Img className="choose_course_img" src={item.img} />
                             <Card.ImgOverlay className="card_Img">
                                 <Card.Body>
@@ -105,12 +106,12 @@ const ChooseCourse = () => {
                                     <Card.Text className="text-center text-white p_l">
                                         <FontAwesomeIcon icon={faCheck} />  {item.advantage.happy}
                                     </Card.Text>
-                                    <button className="purchase_btn text-uppercase mt-3">{item.btnName}</button>
+                                    <NavLink to="/membership"> <button className="purchase_btn text-uppercase mt-3">{item.btnName}</button></NavLink>
                                 </Card.Body>
                             </Card.ImgOverlay>
                         </Card>) : 'loading.....'
                     }
-                </CardGroup>
+                </CardDeck>
             </Container>
             <Footer />
         </>

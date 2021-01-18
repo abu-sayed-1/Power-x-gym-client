@@ -9,6 +9,7 @@ import CoursesList from './components/OurClasses/CoursesList/CoursesList';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import ClassSchedule from './components/OurClasses/ClassSchedule/ClassSchedule';
 import ChooseCourse from './components/PricingPlans/ChooseCourse/ChooseCourse';
+import Membership from './components/PricingPlans/Membership/Membership';
 function App() {
   return (
     <Router>
@@ -27,6 +28,9 @@ function App() {
         </Route>
         <Route path="/chooseCourse">
           <ChooseCourse />
+        </Route>
+        <Route path="/membership">
+          <Membership />
         </Route>
         <Route path="*">
           <PageNotFound />

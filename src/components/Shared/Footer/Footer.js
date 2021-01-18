@@ -8,7 +8,7 @@ const Footer = () => {
             <Container className="mt-5 pt-5">
                 <Row>
                     <Col>
-                        <Navbar.Brand href="#home" className="brand_name text-white">POWER <span>X</span></Navbar.Brand>
+                        <Navbar.Brand href="/" className="brand_name text-white">POWER <span>X</span></Navbar.Brand>
                     </Col>
                     <Col>
                         <h5 className="text-white">Need Help?</h5>
@@ -38,8 +38,8 @@ const Footer = () => {
                     </Col>
                 </Row>
             </Container>
-            <footer className="d-flex justify-content-center">
-                <samp className="text-muted">
+            <footer className="d-flex justify-content-center align-self-end">
+                <samp className="text-muted ">
                     © {new Date().getFullYear()} Ahmed LTD, All Rights Reserved.
                     </samp>
             </footer>
