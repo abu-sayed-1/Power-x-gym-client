@@ -1,0 +1,21 @@
+.course_img {
+    box-sizing: border-box;
+    width: 348px !important;
+    height: 436px !important;
+}
+
+.courses_btn {
+    box-sizing: border-box;
+    width: 18rem !important;
+    font-weight: 600;
+    font-size: 1.3rem;
+    font-family: 'Rubik', sans-serif;
+    position: relative;
+    bottom: 40px;
+    left: 2rem;
+    padding: 1rem !important;
+    background-color: #fcd742f5;
+    color: #2b2528;
+    border: none;
+    outline: none;
+}
