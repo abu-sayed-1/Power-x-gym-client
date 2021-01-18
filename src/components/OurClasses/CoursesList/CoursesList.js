@@ -61,7 +61,7 @@ const CoursesList = () => {
 
     const history = useHistory();
     const handleCourseDetail = (id) => {
-           console.log(id, 'course id ')
+        history.push(`/specificId${id}`)
     }
 
     return (

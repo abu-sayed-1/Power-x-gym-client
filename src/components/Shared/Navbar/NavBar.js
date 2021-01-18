@@ -13,10 +13,10 @@ const NavBar = () => {
                     <Nav className="ml-auto ">
                         <Nav.Link className="mr-4 text-white nav_item" href="#">Home</Nav.Link>
                         <Nav.Link className="mr-4 text-white nav_item" href="#">Services</Nav.Link>
-                        <NavLink to="/coursesList" className="mr-4 text-white nav_item">Our classes</NavLink>
+                        <NavLink to="/coursesList " className="mr-4 text-white nav_item">Our classes</NavLink>
                         <Nav.Link className="mr-4 text-white nav_item" href="#">About us</Nav.Link>
-                        <Nav.Link className="mr-4 text-white nav_item" href="#">Blog</Nav.Link>
-                        <Nav.Link className="mr-4 text-white nav_item" href="#">Pricing</Nav.Link>
+                        <NavLink to="/" className="mr-4 text-white nav_item" href="#">Blog</NavLink>
+                        <NavLink to="/chooseCourse" className="mr-4 text-white nav_item">Pricing</NavLink>
                         <Nav.Link className="mr-4 text-white nav_item" href="#">Contact Us</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
