@@ -3,6 +3,9 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import Footer from '../../Shared/Footer/Footer';
 import NavBar from '../../Shared/Navbar/NavBar';
 import { useForm } from 'react-hook-form';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
+
 
 
 // button[type="submit"]:active,
@@ -43,9 +46,9 @@ const Membership = () => {
                                 name="firstName"
                                 placeholder="Enter You First Name"
                             />
-                            {errors.firstName?.type === "required" && <span style={{ color: 'red' }}>  <img src="https://tse4.mm.bing.net/th?id=OIP.NJtR4fpshSUUBS0_6cXj_AHaHa&pid=Api&P=0&w=300&h=300" alt="" width="20" />  First name is required</span>}
-                            {errors.firstName?.type === "minLength" && <span style={{ color: 'red' }}> <img src="https://tse4.mm.bing.net/th?id=OIP.NJtR4fpshSUUBS0_6cXj_AHaHa&pid=Api&P=0&w=300&h=300" alt="" width="20" />  minimum three Characters</span>}
-                            <br />
+                            {errors.firstName?.type === "required" && <span style={{ color: 'red' }}>  <FontAwesomeIcon icon={faExclamationTriangle} />  First name is required</span>}
+                            {errors.firstName?.type === "minLength" && <span style={{ color: 'red' }}>  <FontAwesomeIcon icon={faExclamationTriangle} /> Minimum three Characters</span>}
+
                             <label>Email</label>
                             <Form.Control
                                 ref={
@@ -56,31 +59,103 @@ const Membership = () => {
                                 }
                                 className="p-4" type="email" name="email" placeholder="Enter You Email"
                             />
-                            {errors.email?.type === "required" && <span style={{ color: 'red' }}>Email is required</span>}
+                            {errors.email?.type === "required" && <span style={{ color: 'red' }}> <FontAwesomeIcon icon={faExclamationTriangle} /> Email is required</span>}
                             {errors.firstName?.type === "pattern" && <span style={{ color: 'red' }}>example@gmail.com</span>}
-                            <br />
+
                             <label>Date Of Birth</label>
-                            <Form.Control type="date" name="date" />
+                            <Form.Control className="p-4" type="date" name="date" />
                             <label>Address line 1:</label>
-                            <Form.Control className="p-4" type="text" name="address" />
+
+                            <Form.Control
+                                ref={
+                                    register({
+                                        required: true,
+                                        minLength: 20
+                                    })
+                                }
+                                className="p-4" type="text" name="address"
+                            />
+                            {errors.address?.type === "required" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Address is required</span>}
+                            {errors.address?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Twenty Characters</span>}
+
                             <label>City</label>
-                            <Form.Control className="p-4" type="text" name="city" />
+                            <Form.Control
+                                ref={
+                                    register({
+                                        required: true,
+                                        minLength: 3,
+                                    })
+                                }
+                                className="p-4" type="text" name="city"
+                            />
+                            {errors.city?.type === "required" && <span style={{ color: 'red' }}> <FontAwesomeIcon icon={faExclamationTriangle} />City is required</span>}
+                            {errors.city?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Three Characters</span>}
+
                         </Col>
                         <Col>
                             <label>last Name</label>
-                            <Form.Control className="p-4" type="text" name="lastName" placeholder="Enter You last Name" />
+                            <Form.Control
+                                ref={
+                                    register({
+                                        required: true,
+                                        minLength: 3
+                                    })
+                                }
+                                className="p-4" type="text" name="lastName" placeholder="Enter You last Name"
+                            />
+                            {errors.lastName?.type === "required" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Last name is required</span>}
+                            {errors.lastName?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum three Characters</span>}
+
                             <label>Mobile Number</label>
-                            <Form.Control className="p-4" type="number" name="mobileNumber" />
+                            <Form.Control
+                                ref={
+                                    register({
+                                        required: true,
+                                        minLength: 11,
+                                        maxLength: 11
+
+                                    })
+                                }
+                                className="p-4" type="number" name="mobileNumber"
+                            />
+                            {errors.mobileNumber?.type === "required" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Phone Number is required</span>}
+                            {errors.mobileNumber?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Eleven Digits</span>}
+                            {errors.mobileNumber?.type === "maxLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Maximum Eleven Digits</span>}
+
                             <label>Gender</label>
-                            <Form.Control className="p-4" as="select" custom>
-                                <option value="male">Male</option>
+                            <Form.Control ref={register({ required: true })} name='gender' className="p-4" as="select" custom>
+                                <option activeValue="male">Male</option>
                                 <option value="female">Female</option>
                                 <option disabled>Other</option>
                             </Form.Control>
+                            {errors.gender?.type === "required" && <span style={{ color: 'red' }}> Gender is required</span>}
+
                             <label>Country/Region</label>
-                            <Form.Control className="p-4" type="text" name="countryRegion" />
+                            <Form.Control
+                                ref={
+                                    register({
+                                        required: true,
+                                        minLength: 2
+                                    })
+                                }
+                                className="p-4" type="text" name="countryRegion"
+                            />
+                            {errors.countryRegion?.type === "required" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Country/Region is required</span>}
+                            {errors.countryRegion?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Two Digits</span>}
+
                             <label>Postcode</label>
-                            <Form.Control className="p-4" type="number" name="Postcode" />
+                            <Form.Control
+                                ref={
+                                    register({
+                                        required: true,
+                                        minLength: 3,
+                                    })
+                                }
+                                className="p-4" type="number" name="Postcode"
+                            />
+                            {errors.Postcode?.type === "required" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Postcode is required</span>}
+                            {errors.Postcode?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Three Digits</span>}
+
                         </Col>
                     </Row>
                     <Button type="submit">NEXT</Button>
