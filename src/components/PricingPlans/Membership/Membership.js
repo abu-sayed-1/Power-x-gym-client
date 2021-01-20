@@ -1,4 +1,5 @@
 import React from 'react';
+import './Membership.css'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import Footer from '../../Shared/Footer/Footer';
 import NavBar from '../../Shared/Navbar/NavBar';
@@ -31,10 +32,21 @@ const Membership = () => {
                 </div>
             </section>
             <Container className="my-5 py-5">
+                <div className="d-flex justify-content-center m-auto">
+                    <div>
+                        <h2><span className='rounded_circle bg-danger'>1</span>...........................</h2>
+                    </div>
+                    <div>
+                        <h2><span className='rounded_circle bg-danger'>2</span>...........................</h2>
+                    </div>
+                    <div>
+                        <h2><span className='rounded_circle bg-danger'>3</span></h2>
+                    </div>
+                </div>
                 <Form onSubmit={handleSubmit(onSubmit)} className=" m-auto justify-content-center">
                     <Row>
                         <Col>
-                            <label>First Name</label>
+                            <p>First Name</p>
                             <Form.Control
                                 ref={
                                     register({
@@ -49,23 +61,29 @@ const Membership = () => {
                             {errors.firstName?.type === "required" && <span style={{ color: 'red' }}>  <FontAwesomeIcon icon={faExclamationTriangle} />  First name is required</span>}
                             {errors.firstName?.type === "minLength" && <span style={{ color: 'red' }}>  <FontAwesomeIcon icon={faExclamationTriangle} /> Minimum three Characters</span>}
 
-                            <label>Email</label>
+                            <p>Email</p>
                             <Form.Control
+                                value="abusayedrakib60@gmail.com"
                                 ref={
                                     register({
                                         required: true,
-                                        pattern: ".*?@?[^@]*\.+.*"
                                     })
                                 }
                                 className="p-4" type="email" name="email" placeholder="Enter You Email"
                             />
                             {errors.email?.type === "required" && <span style={{ color: 'red' }}> <FontAwesomeIcon icon={faExclamationTriangle} /> Email is required</span>}
-                            {errors.firstName?.type === "pattern" && <span style={{ color: 'red' }}>example@gmail.com</span>}
 
-                            <label>Date Of Birth</label>
-                            <Form.Control className="p-4" type="date" name="date" />
-                            <label>Address line 1:</label>
-
+                            <p>Date Of Birth</p>
+                            <Form.Control
+                                ref={
+                                    register({
+                                        required: true
+                                    })
+                                }
+                                className="p-4" type="date" name="date"
+                            />
+                            {errors.date && <span style={{ color: 'red' }}> <FontAwesomeIcon icon={faExclamationTriangle} /> Date Of Birth is required</span>}
+                            <p>Address line 1:</p>
                             <Form.Control
                                 ref={
                                     register({
@@ -78,7 +96,7 @@ const Membership = () => {
                             {errors.address?.type === "required" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Address is required</span>}
                             {errors.address?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Twenty Characters</span>}
 
-                            <label>City</label>
+                            <p>City</p>
                             <Form.Control
                                 ref={
                                     register({
@@ -93,7 +111,7 @@ const Membership = () => {
 
                         </Col>
                         <Col>
-                            <label>last Name</label>
+                            <p>last Name</p>
                             <Form.Control
                                 ref={
                                     register({
@@ -106,7 +124,7 @@ const Membership = () => {
                             {errors.lastName?.type === "required" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Last name is required</span>}
                             {errors.lastName?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum three Characters</span>}
 
-                            <label>Mobile Number</label>
+                            <p>Mobile Number</p>
                             <Form.Control
                                 ref={
                                     register({
@@ -121,16 +139,20 @@ const Membership = () => {
                             {errors.mobileNumber?.type === "required" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Phone Number is required</span>}
                             {errors.mobileNumber?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Eleven Digits</span>}
                             {errors.mobileNumber?.type === "maxLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Maximum Eleven Digits</span>}
-
-                            <label>Gender</label>
-                            <Form.Control ref={register({ required: true })} name='gender' className="p-4" as="select" custom>
-                                <option activeValue="male">Male</option>
+                            <p>Gender</p>
+                            <select style={{ width: '100%', padding: '.7rem', border: ' 1px solid #ced4da', borderRadius: '.25rem' }} name="func"
+                                ref={
+                                    register({
+                                        required: 'select one option'
+                                    })}>
+                                <option value=""></option>
+                                <option value="male">Male</option>
                                 <option value="female">Female</option>
                                 <option disabled>Other</option>
-                            </Form.Control>
-                            {errors.gender?.type === "required" && <span style={{ color: 'red' }}> Gender is required</span>}
+                            </select>
+                            {errors.func && <p style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} />{errors.func.message}</p>}
 
-                            <label>Country/Region</label>
+                            <p>Country/Region</p>
                             <Form.Control
                                 ref={
                                     register({
@@ -142,8 +164,7 @@ const Membership = () => {
                             />
                             {errors.countryRegion?.type === "required" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Country/Region is required</span>}
                             {errors.countryRegion?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Two Digits</span>}
-
-                            <label>Postcode</label>
+                            <p>Postcode</p>
                             <Form.Control
                                 ref={
                                     register({
@@ -151,10 +172,10 @@ const Membership = () => {
                                         minLength: 3,
                                     })
                                 }
-                                className="p-4" type="number" name="Postcode"
+                                className="p-4" type="text" name="Postcode"
                             />
                             {errors.Postcode?.type === "required" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Postcode is required</span>}
-                            {errors.Postcode?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Three Digits</span>}
+                            {errors.Postcode?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Three Characters</span>}
 
                         </Col>
                     </Row>
