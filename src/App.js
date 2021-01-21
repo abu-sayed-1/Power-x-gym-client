@@ -10,6 +10,7 @@ import PageNotFound from './components/PageNotFound/PageNotFound';
 import ClassSchedule from './components/OurClasses/ClassSchedule/ClassSchedule';
 import ChooseCourse from './components/PricingPlans/ChooseCourse/ChooseCourse';
 import Membership from './components/PricingPlans/Membership/Membership';
+import BankPayment from './components/PricingPlans/BankPayment/BankPayment';
 function App() {
   return (
     <Router>
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route path="/membership">
           <Membership />
+        </Route>
+        <Route path="/bankPayment">
+          <BankPayment />
         </Route>
         <Route path="*">
           <PageNotFound />

@@ -1,9 +1,26 @@
-.rounded_circle {
-    padding: 1rem;
-    box-sizing: border-box;
-    border-radius: 100%;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    -ms-border-radius: 100%;
-    -o-border-radius: 100%;
+.p_2 {
+    padding: 2rem !important;
+}
+
+.select {
+    width: 100%;
+    padding: 1.2rem;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-border-radius: .25rem;
+    -moz-border-radius: .25rem;
+    -ms-border-radius: .25rem;
+    -o-border-radius: .25rem;
+}
+
+.registration {
+    position: relative !important;
+    float: right;
+    background-color: #fcd842 !important;
+    outline: none !important;
+    border: none !important;
+    width: 13rem;
+    padding: .8rem;
+    font-size: 1.3rem;
+    font-weight: 500;
 }

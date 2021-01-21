@@ -1,27 +1,28 @@
 import React from 'react';
 import './Membership.css'
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Col, Container, Form, Row } from 'react-bootstrap';
 import Footer from '../../Shared/Footer/Footer';
 import NavBar from '../../Shared/Navbar/NavBar';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { useHistory } from 'react-router-dom';
 
-
-
-// button[type="submit"]:active,
-// input[type="button"]:active,
-// input[type="submit"]:active {
-//   transition: 0.3s all;
-//   transform: translateY(3px);
-//   border: 1px solid transparent;
-//   opacity: 0.8;
-// ✅ ❌
-// }
 const Membership = () => {
     const { register, handleSubmit, errors } = useForm();
+    const history = useHistory();
+
     const onSubmit = data => {
-        console.log(data, 'my form Data')
+        fetch('http://localhost:4000/personalDetail', {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(result => {
+                if (result) {
+                    history.push('/bankPayment')
+                }
+            })
     }
     return (
         <>
@@ -32,17 +33,6 @@ const Membership = () => {
                 </div>
             </section>
             <Container className="my-5 py-5">
-                <div className="d-flex justify-content-center m-auto">
-                    <div>
-                        <h2><span className='rounded_circle bg-danger'>1</span>...........................</h2>
-                    </div>
-                    <div>
-                        <h2><span className='rounded_circle bg-danger'>2</span>...........................</h2>
-                    </div>
-                    <div>
-                        <h2><span className='rounded_circle bg-danger'>3</span></h2>
-                    </div>
-                </div>
                 <Form onSubmit={handleSubmit(onSubmit)} className=" m-auto justify-content-center">
                     <Row>
                         <Col>
@@ -54,7 +44,7 @@ const Membership = () => {
                                         minLength: 3
                                     })
                                 }
-                                className="p-4" type="text"
+                                className="p_2" type="text"
                                 name="firstName"
                                 placeholder="Enter You First Name"
                             />
@@ -63,13 +53,13 @@ const Membership = () => {
 
                             <p>Email</p>
                             <Form.Control
-                                value="abusayedrakib60@gmail.com"
+                                // value="abusayedrakib60@gmail.com"
                                 ref={
                                     register({
                                         required: true,
                                     })
                                 }
-                                className="p-4" type="email" name="email" placeholder="Enter You Email"
+                                className="p_2" type="email" name="email" placeholder="Enter You Email"
                             />
                             {errors.email?.type === "required" && <span style={{ color: 'red' }}> <FontAwesomeIcon icon={faExclamationTriangle} /> Email is required</span>}
 
@@ -80,7 +70,7 @@ const Membership = () => {
                                         required: true
                                     })
                                 }
-                                className="p-4" type="date" name="date"
+                                className="p_2" type="date" name="date"
                             />
                             {errors.date && <span style={{ color: 'red' }}> <FontAwesomeIcon icon={faExclamationTriangle} /> Date Of Birth is required</span>}
                             <p>Address line 1:</p>
@@ -91,7 +81,7 @@ const Membership = () => {
                                         minLength: 20
                                     })
                                 }
-                                className="p-4" type="text" name="address"
+                                className="p_2" type="text" name="address"
                             />
                             {errors.address?.type === "required" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Address is required</span>}
                             {errors.address?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Twenty Characters</span>}
@@ -104,7 +94,7 @@ const Membership = () => {
                                         minLength: 3,
                                     })
                                 }
-                                className="p-4" type="text" name="city"
+                                className="p_2" type="text" name="city"
                             />
                             {errors.city?.type === "required" && <span style={{ color: 'red' }}> <FontAwesomeIcon icon={faExclamationTriangle} />City is required</span>}
                             {errors.city?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Three Characters</span>}
@@ -119,7 +109,7 @@ const Membership = () => {
                                         minLength: 3
                                     })
                                 }
-                                className="p-4" type="text" name="lastName" placeholder="Enter You last Name"
+                                className="p_2" type="text" name="lastName" placeholder="Enter You last Name"
                             />
                             {errors.lastName?.type === "required" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Last name is required</span>}
                             {errors.lastName?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum three Characters</span>}
@@ -134,13 +124,13 @@ const Membership = () => {
 
                                     })
                                 }
-                                className="p-4" type="number" name="mobileNumber"
+                                className="p_2" type="number" name="mobileNumber"
                             />
                             {errors.mobileNumber?.type === "required" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Phone Number is required</span>}
                             {errors.mobileNumber?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Eleven Digits</span>}
                             {errors.mobileNumber?.type === "maxLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Maximum Eleven Digits</span>}
                             <p>Gender</p>
-                            <select style={{ width: '100%', padding: '.7rem', border: ' 1px solid #ced4da', borderRadius: '.25rem' }} name="func"
+                            <select className="select" name="gender"
                                 ref={
                                     register({
                                         required: 'select one option'
@@ -150,8 +140,7 @@ const Membership = () => {
                                 <option value="female">Female</option>
                                 <option disabled>Other</option>
                             </select>
-                            {errors.func && <p style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} />{errors.func.message}</p>}
-
+                            {errors.gender && <p style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} />{errors.gender.message}</p>}
                             <p>Country/Region</p>
                             <Form.Control
                                 ref={
@@ -160,7 +149,7 @@ const Membership = () => {
                                         minLength: 2
                                     })
                                 }
-                                className="p-4" type="text" name="countryRegion"
+                                className="p_2" type="text" name="countryRegion"
                             />
                             {errors.countryRegion?.type === "required" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Country/Region is required</span>}
                             {errors.countryRegion?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Two Digits</span>}
@@ -172,14 +161,15 @@ const Membership = () => {
                                         minLength: 3,
                                     })
                                 }
-                                className="p-4" type="text" name="Postcode"
+                                className="p_2" type="text" name="Postcode"
                             />
                             {errors.Postcode?.type === "required" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Postcode is required</span>}
                             {errors.Postcode?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Three Characters</span>}
 
                         </Col>
                     </Row>
-                    <Button type="submit">NEXT</Button>
+                    <br />
+                    <button type="submit" className="registration">NEXT</button>
                 </Form>
             </Container>
             <Footer />
