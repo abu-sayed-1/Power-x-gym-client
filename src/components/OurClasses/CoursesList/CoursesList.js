@@ -42,17 +42,9 @@ import { useHistory } from 'react-router-dom';
 //     }
 
 // ]
+
 const CoursesList = () => {
     const [coursesData, setCoursesData] = useState(null);
-    // useEffect(() => {
-    //     fetch('http://localhost:4000/coursesList', {
-    //         method: 'POST',
-    //         body: JSON.stringify(courseLists),
-    //         headers: { 'Content-type': 'application/json' }
-    //     })
-    //         .then(result => console.log(result, "courses List"))
-    // }, [])
-
     useEffect(() => {
         fetch('http://localhost:4000/coursesByData')
             .then(res => res.json())

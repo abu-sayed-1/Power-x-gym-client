@@ -10,7 +10,9 @@ import PageNotFound from './components/PageNotFound/PageNotFound';
 import ClassSchedule from './components/OurClasses/ClassSchedule/ClassSchedule';
 import ChooseCourse from './components/PricingPlans/ChooseCourse/ChooseCourse';
 import Membership from './components/PricingPlans/Membership/Membership';
-import BankPayment from './components/PricingPlans/BankPayment/BankPayment';
+import PaymentsGateway from './components/PricingPlans/PaymentsGateway/PaymentsGateway';
+//https://www.sandbox.paypal.com/myaccount/summary?intl=0
+//https://developer.paypal.com/developer/applications
 function App() {
   return (
     <Router>
@@ -33,8 +35,8 @@ function App() {
         <Route path="/membership">
           <Membership />
         </Route>
-        <Route path="/bankPayment">
-          <BankPayment />
+        <Route path="/paymentsGateway">
+          <PaymentsGateway />
         </Route>
         <Route path="*">
           <PageNotFound />

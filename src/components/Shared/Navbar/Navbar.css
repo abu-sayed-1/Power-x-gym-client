@@ -1,12 +1,23 @@
+.menu_icon {
+    width: 3.6rem !important;
+    height: 2.5rem !important;
+    outline: none !important;
+    background-color: #fcd742 !important;
+}
+
+.icon {
+    color: #cc07a1bb;
+}
+
 .brand_name {
     font-size: 26px !important;
-    font-weight:500;
+    font-weight: 500;
 }
 
 .brand_name span {
     color: yellow;
 }
 
-.nav_item{
+.nav_item {
     font-size: 20px !important;
 }

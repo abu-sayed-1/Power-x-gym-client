@@ -136,30 +136,18 @@ import { useParams } from 'react-router-dom';
 //         img: 'https://tse3.mm.bing.net/th?id=OIP.Xal5xEgVnt39uwC2nLanSgHaFO&pid=Api&P=0&w=281&h=199'
 //     }
 // ];
+
 const ClassSchedule = () => {
     const { id } = useParams();
     const [classSchedule, setClassSchedule] = useState(null);
     console.log(classSchedule, 'classSchedule')
-    // useEffect(() => {
-    //     fetch('http://localhost:4000/trainingData', {
-    //         method: 'POST',
-    //         body: JSON.stringify(trainingsData),
-    //         headers: {
-    //             'Content-type': 'application/json'
-    //         }
-    //     })
-    //         .then(res => console.log(res, "training Data"))
-    // }, [])
 
     useEffect(() => {
-        fetch('http://localhost:4000/checkoutId',{
-          method:"POST",
-          headers:{"Content-type": 'application/json'},
-          body: JSON.stringify(id) 
-        })
+        fetch(`http://localhost:4000/checkout${id}`)
             .then(res => res.json())
             .then(data => setClassSchedule(data))
     }, [id])
+
     return (
         <div>
             <h2>this is trainingData</h2>
