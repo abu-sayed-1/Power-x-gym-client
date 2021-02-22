@@ -4,53 +4,11 @@ import Footer from '../../Shared/Footer/Footer';
 import NavBar from '../../Shared/Navbar/NavBar';
 import Paypal from './Paypal/Paypal';
 import { loadStripe } from "@stripe/stripe-js";
-import {
-    Elements,
-    CardElement,
-    useStripe,
-    useElements
-} from "@stripe/react-stripe-js";
-
-// const stripeData = new Stripe
-//payment form hare=========>..
-const CheckoutForm = () => {
-    const stripe = useStripe();
-    const elements = useElements();
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
-
-            type: 'card',
-            card: elements.getElement(CardElement)
-        });
-        if (!error) {
-            const { id } = paymentMethod;
-            console.log(id)
-        //     fetch('http://localhost:4000/payment', {
-          
-
-    }
-
-
-    return <form onSubmit={handleSubmit} style={{ margin: '40px' }}>
-        <CardElement />
-        <button type="submit" disabled={!stripe}>pay</button>
-    </form>
-};
-
-
-//===============================>
-
-
-
-
-
-
+import { Elements, } from "@stripe/react-stripe-js";
+import CheckoutForm from './Paypal/CheckoutForm/CheckoutForm';
 
 const PaymentsGateway = () => {
-    // work with stripe js -----00-----------------
     const stripePromise = loadStripe("pk_test_51HaKX2FWzFyXdW5KjdYVQtPEcdPZOSLq0nvfi4MfePscvZAop5VwXrGvH9Z0XjenRtpUwNFsX07um8rLzI8yrrB600opOV9Hw9");
-    //00---
 
     const [checkout, setCheckout] = useState(
         {
