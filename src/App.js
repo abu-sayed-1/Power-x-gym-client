@@ -9,11 +9,11 @@ import CoursesList from './components/OurClasses/CoursesList/CoursesList';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import ClassSchedule from './components/OurClasses/ClassSchedule/ClassSchedule';
 import ChooseCourse from './components/PricingPlans/ChooseCourse/ChooseCourse';
-import Membership from './components/PricingPlans/Membership/Membership';
+import Registration from './components/PricingPlans/Registration/Registration';
 import PaymentsGateway from './components/PricingPlans/PaymentsGateway/PaymentsGateway';
-//https://www.sandbox.paypal.com/myaccount/summary?intl=0
-//https://developer.paypal.com/developer/applications
+import MembershipCreated from './components/PricingPlans/MembershipCreated/MembershipCreated';
 function App() {
+  // pk_test_51HaKX2FWzFyXdW5KjdYVQtPEcdPZOSLq0nvfi4MfePscvZAop5VwXrGvH9Z0XjenRtpUwNFsX07um8rLzI8yrrB600opOV9Hw9
   return (
     <Router>
       <Switch>
@@ -32,11 +32,14 @@ function App() {
         <Route path="/chooseCourse">
           <ChooseCourse />
         </Route>
-        <Route path="/membership">
-          <Membership />
+        <Route path="/Registration">
+          <Registration />
         </Route>
         <Route path="/paymentsGateway">
           <PaymentsGateway />
+        </Route>
+        <Route path="/MembershipCreated">
+          <MembershipCreated />
         </Route>
         <Route path="*">
           <PageNotFound />
@@ -45,5 +48,5 @@ function App() {
     </Router>
   );
 }
-
+ 
 export default App;

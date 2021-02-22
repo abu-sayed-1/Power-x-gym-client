@@ -18,7 +18,7 @@ const Paypal = () => {
                                 description: "Cool looking table",
                                 amount: {
                                     currency_code: "CAD",
-                                    value: 50.00,
+                                    value: 1.00,
                                 },
                             },
                         ],
@@ -27,9 +27,9 @@ const Paypal = () => {
                 onApprove: async (data, actions) => {
                     const order = await actions.order.capture();
                     console.log(order);
-                    // if (order) {
-                    //     history.push('/ChooseCourse')
-                    // }
+                    if (order) {
+                        history.push('/MembershipCreated')
+                    }
                 },
                 onError: (err) => {
                     console.log(err)

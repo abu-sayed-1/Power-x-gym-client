@@ -1,5 +1,5 @@
 import React from 'react';
-import './Membership.css'
+import './Registration.css';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import Footer from '../../Shared/Footer/Footer';
 import NavBar from '../../Shared/Navbar/NavBar';
@@ -8,10 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom';
 
-const Membership = () => {
+const Registration = () => {
     const { register, handleSubmit, errors } = useForm();
     const history = useHistory();
-
     const onSubmit = data => {
         fetch('http://localhost:4000/personalDetail', {
             method: 'POST',
@@ -20,7 +19,7 @@ const Membership = () => {
         })
             .then(result => {
                 if (result) {
-                    history.push('/bankPayment')
+                    history.push('/paymentsGateway')
                 }
             })
     }
@@ -41,7 +40,7 @@ const Membership = () => {
                                 ref={
                                     register({
                                         required: true,
-                                        minLength: 3
+                                        minLength: 2
                                     })
                                 }
                                 className="p_2" type="text"
@@ -49,7 +48,7 @@ const Membership = () => {
                                 placeholder="Enter You First Name"
                             />
                             {errors.firstName?.type === "required" && <span style={{ color: 'red' }}>  <FontAwesomeIcon icon={faExclamationTriangle} />  First name is required</span>}
-                            {errors.firstName?.type === "minLength" && <span style={{ color: 'red' }}>  <FontAwesomeIcon icon={faExclamationTriangle} /> Minimum three Characters</span>}
+                            {errors.firstName?.type === "minLength" && <span style={{ color: 'red' }}>  <FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Two Characters</span>}
 
                             <p>Email</p>
                             <Form.Control
@@ -177,4 +176,4 @@ const Membership = () => {
     );
 };
 
-export default Membership;
+export default Registration;

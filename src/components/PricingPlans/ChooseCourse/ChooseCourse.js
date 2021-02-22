@@ -106,7 +106,7 @@ const ChooseCourse = () => {
                                     <Card.Text className="text-center text-white p_l">
                                         <FontAwesomeIcon icon={faCheck} />  {item.advantage.happy}
                                     </Card.Text>
-                                    <NavLink to="/membership"> <button className="purchase_btn text-uppercase mt-3">{item.btnName}</button></NavLink>
+                                    <NavLink to="/Registration"> <button className="purchase_btn text-uppercase mt-3">{item.btnName}</button></NavLink>
                                 </Card.Body>
                             </Card.ImgOverlay>
                         </Card>) : 'loading.....'

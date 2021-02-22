@@ -9,8 +9,7 @@ const TrainingPrograms = ({ TrainingData }) => {
                 {
                     TrainingData ? TrainingData.map(item => <Card key={item._id}>
                         <Card.Img variant="top" className="workOutBg_img" src={item.trainingProgramsImg} />
-                            <button className="text-uppercase Training_Programs_Btn">{item.trainingBtnName}</button>
-                            {/* <i class="fal fa-arrow-right"></i> */}
+                        <button className="text-uppercase Training_Programs_Btn">{item.trainingBtnName}</button>
                     </Card>) : <h2>loading...</h2>
                 }
             </CardDeck>

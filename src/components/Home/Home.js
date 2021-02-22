@@ -8,7 +8,6 @@ import WorkOut from './WorkOut/WorkOut';
 
 const Home = () => {
     const [homePageAllData, setHomePageAllData] = useState(null);
-    console.log(homePageAllData);
     const workOutData = homePageAllData ? homePageAllData.slice(0, 3) : '';
     const ourDreamData = homePageAllData ? homePageAllData.slice(3, 4) : '';
     const TrainingData = homePageAllData ? homePageAllData.slice(4, 6) : '';
