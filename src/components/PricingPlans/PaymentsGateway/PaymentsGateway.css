@@ -1,0 +1,52 @@
+.card_content {
+    padding: 4rem !important;
+    border: 2px solid #90909060;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.paypal_content {
+    border: 2px solid #90909060;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.text_color {
+    font-size: 17px;
+    color: #909090;
+}
+
+.input_name {
+    font-size: 17px;
+    color: #909090;
+}
+
+.payment_inputs {
+    padding: 1.8rem;
+    border: 1px solid#90909041 !important;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #ffa500;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
