@@ -6,7 +6,9 @@ import Paypal from './Paypal/Paypal';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements, } from "@stripe/react-stripe-js";
 import CheckoutForm from './Paypal/CheckoutForm/CheckoutForm';
+import { toast } from 'react-toastify';
 
+toast.configure()
 const PaymentsGateway = () => {
     const stripePromise = loadStripe("pk_test_51HaKX2FWzFyXdW5KjdYVQtPEcdPZOSLq0nvfi4MfePscvZAop5VwXrGvH9Z0XjenRtpUwNFsX07um8rLzI8yrrB600opOV9Hw9");
 
@@ -33,7 +35,12 @@ const PaymentsGateway = () => {
                     </label>
                     <Elements stripe={stripePromise}>
                         <CheckoutForm />
+                        
                     </Elements>
+                    <form onSubmit={handleSubmit} style={{ margin: '40px' }}>
+                        <CardElement />
+                        <button type="submit">pay</button>
+                    </form>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate qui veniam, neque eaque fugiat molestiae molestias eligendi architecto repellat sint</p>
                 </div>
                 <Row className="border p-5">
@@ -54,13 +61,15 @@ const PaymentsGateway = () => {
                 {
                     !checkout.credit && !checkout.paypal &&
                     <button onClick={() =>
-                        alert('Please Choose payment gateway !')}
+                          toast.error('Please Choose payment gateway !', {position: toast.POSITION.TOP_CENTER})
+                        }
                     >null</button>
                 }
 
                 {
                     checkout.paypal && <button onClick={() =>
-                        alert('Please Click the Paypal or Debit,Credit Card button')}
+                         toast.error('Please Choose the Paypal or Debit/Credit Card button !', {position: toast.POSITION.TOP_CENTER})
+                        }
                     >Paypal</button>
                 }
 
