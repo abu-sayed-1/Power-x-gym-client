@@ -13,30 +13,34 @@ import { Button, Col, Row, Spinner } from 'react-bootstrap';
 
 toast.configure()
 const CheckoutForm = () => {
-    const [process, setProcess] = useState(false);
-    const [checkoutFormEmptyOrNot, setCheckoutFormEmptyOrNot] = useState({
-        cardNumber:'',
-        expiryDate:'',
-        cvcCode:''
-    });
-    console.log(checkoutFormEmptyOrNot)
     const history = useHistory()
     const stripe = useStripe();
     const elements = useElements();
+    const [process, setProcess] = useState(false);
+
+    const handleCardElementOnChange = (e) => {
+        if (e.elementType === "cardCvc") {
+            toast.warning(e.error.message, { position: toast.POSITION.TOP_CENTER })
+        }
+        if (e.elementType === "cardNumber") {
+            toast.warning(e.error.message, { position: toast.POSITION.TOP_CENTER })
+        }
+        if (e.elementType === "cardExpiry") {
+            toast.warning(e.error.message, { position: toast.POSITION.TOP_CENTER })
+        }
+
+    }
 
     const handleSubmit = async (event) => {
-        //  console.log(event.input.value == empty)
         event.preventDefault();
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card: elements.getElement(CardNumberElement, CardExpiryElement, CardCvcElement),
         });
         setProcess(paymentMethod, true)
-        if (!paymentMethod) {
-            toast.warning('Please enter your card information!', { position: toast.POSITION.TOP_CENTER })
-
+        if (error) {
+            toast.warning(error.message, { position: toast.POSITION.TOP_CENTER });
         }
-        // setEmptyFrom(!paymentMethod)
         if (!error) {
             console.log(paymentMethod)
             try {
@@ -55,7 +59,6 @@ const CheckoutForm = () => {
                 if (response.data.success === false) {
                     setProcess(false)
                     toast.error(response.data.message, { position: toast.POSITION.TOP_CENTER })
-
                 }
 
             }
@@ -69,15 +72,15 @@ const CheckoutForm = () => {
         <div>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="" className="input_name pt-5 mt-md-2">CARD NUMBER</label>
-                <CardNumberElement onChange={e => setCheckoutFormEmptyOrNot({ cardNumber: e.target.value })} className="payment_inputs" />
+                <CardNumberElement id="CardNumber" onChange={handleCardElementOnChange} className="payment_inputs" />
                 <Row>
                     <Col>
                         <label htmlFor="" className="input_name pt-4">EXPIRY DATE</label>
-                        <CardExpiryElement onChange={e => setCheckoutFormEmptyOrNot({ expiryDate: e.target.value })} className="payment_inputs" />
+                        <CardExpiryElement id="expiryDate" onChange={handleCardElementOnChange} className="payment_inputs" />
                     </Col>
                     <Col>
                         <label htmlFor="" className="input_name pt-4">CVC CODE</label>
-                        <CardCvcElement onChange={e => setCheckoutFormEmptyOrNot({ cvcCode: e.target.value })} className="payment_inputs" />
+                        <CardCvcElement id="cvcCode" onChange={handleCardElementOnChange} className="payment_inputs" />
                     </Col>
                 </Row>
                 {process ?
