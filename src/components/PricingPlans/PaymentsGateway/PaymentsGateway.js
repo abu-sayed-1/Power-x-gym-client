@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PaymentsGateway.css';
 import amex from '../../../images/ImageAndIcon/credit-cards_amex.png';
 import mastercard from '../../../images/ImageAndIcon/credit-cards_mastercard.png';
@@ -18,8 +18,43 @@ const creditCardImages = [
     { id: 2, img: visaCard },
     { id: 3, img: amex },
 ];
+
 const PaymentsGateway = () => {
     const stripePromise = loadStripe("pk_test_51HaKX2FWzFyXdW5KjdYVQtPEcdPZOSLq0nvfi4MfePscvZAop5VwXrGvH9Z0XjenRtpUwNFsX07um8rLzI8yrrB600opOV9Hw9");
+    const [courseAmount, setCourseAmount] = useState({ amount: '' });
+    const [courseAmount1, setCourseAmount1] = useState({ amount: '' });
+    const checkoutState = courseAmount.amount && courseAmount.amount;
+    const checkoutState1 = courseAmount1.amount && courseAmount1.amount;
+
+    let specificId = sessionStorage.getItem('purchaseId');
+    useEffect(() => {
+        // paypal =================>
+        if (specificId == 1) {
+            setCourseAmount({ amount: 180 });
+        };
+
+        if (specificId == 2) {
+            setCourseAmount({ amount: 154 });
+        };
+
+        if (specificId == 3) {
+            setCourseAmount({ amount: 115 });
+        };
+        // stripe ===============================>
+        if (specificId == 1) {
+            setCourseAmount1({ amount: 14000 });
+        };
+
+        if (specificId == 2) {
+            setCourseAmount1({ amount: 12000 });
+        };
+
+        if (specificId == 3) {
+            setCourseAmount1({ amount: 9000 });
+        };
+    }, [specificId]);
+
+    //==========================================================>
 
     const [checkout, setCheckout] = useState(
         {
@@ -61,7 +96,7 @@ const PaymentsGateway = () => {
                         </Col>
                     </Row>
                     <Elements stripe={stripePromise}>
-                        <CheckoutForm />
+                        <CheckoutForm checkoutState1={checkoutState1} />
                     </Elements>
                 </div>
                 <Row className="p-5 mt-5 m-0 paypal_content">
@@ -75,7 +110,7 @@ const PaymentsGateway = () => {
                         </div>
                     </Col>
                     <Col xs={4}>
-                        {checkout.paypal ? <Paypal /> : <img src="https://tse3.mm.bing.net/th?id=OIP.5WodCMcfWx9Gq8jWPTrmGQHaC4&pid=Api&P=0&w=474&h=185" width='200' className="d-flux justify-content-center" alt="" />}
+                        {checkout.paypal ? <Paypal checkoutState={checkoutState} /> : <img src="https://tse3.mm.bing.net/th?id=OIP.5WodCMcfWx9Gq8jWPTrmGQHaC4&pid=Api&P=0&w=474&h=185" width='200' className="d-flux justify-content-center" alt="" />}
                     </Col>
                 </Row>
                 {

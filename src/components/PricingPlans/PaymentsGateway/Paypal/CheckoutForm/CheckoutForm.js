@@ -12,7 +12,8 @@ import { toast } from 'react-toastify';
 import { Button, Col, Row, Spinner } from 'react-bootstrap';
 
 toast.configure()
-const CheckoutForm = () => {
+const CheckoutForm = ({ checkoutState1 }) => {
+    console.log(checkoutState1, '[checkoutState1]');
     const history = useHistory()
     const stripe = useStripe();
     const elements = useElements();
@@ -48,7 +49,7 @@ const CheckoutForm = () => {
                 const response = await axios.post(
                     "http://localhost:4000/stripe/charge",
                     {
-                        amount: 999,
+                        amount: checkoutState1,
                         id: id,
                     }
                 );

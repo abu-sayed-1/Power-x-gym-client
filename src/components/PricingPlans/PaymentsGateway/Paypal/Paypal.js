@@ -1,9 +1,9 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 
-const Paypal = () => {
+const Paypal = ({ checkoutState }) => {
+    console.log(typeof(checkoutState));
     const paypal = useRef();
     const history = useHistory()
 
@@ -18,7 +18,7 @@ const Paypal = () => {
                                 description: "Cool looking table",
                                 amount: {
                                     currency_code: "CAD",
-                                    value: 1.00,
+                                    value: checkoutState,
                                 },
                             },
                         ],
@@ -26,17 +26,16 @@ const Paypal = () => {
                 },
                 onApprove: async (data, actions) => {
                     const order = await actions.order.capture();
-                    console.log(order);
                     if (order) {
                         history.push('/MembershipCreated')
                     }
                 },
                 onError: (err) => {
-                    console.log(err)
+                    console.log(err.message)
                 }
             })
             .render(paypal.current)
-    }, [])
+    }, [checkoutState])
     return (
         <div>
             <div ref={paypal}></div>

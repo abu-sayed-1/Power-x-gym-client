@@ -55,9 +55,10 @@ import { NavLink } from 'react-router-dom';
 //     },
 // ]
 
+
 const ChooseCourse = () => {
     const [course, setCourse] = useState(null);
-    console.log(course);
+
     // useEffect(() => {
     //      fetch('http://localhost:4000/pricingPlans', {
     //          method: 'POST',
@@ -66,6 +67,7 @@ const ChooseCourse = () => {
     //      })
     //      .then(res => console.log(res))
     // }, [])
+
     useEffect(() => {
         fetch('http://localhost:4000/chooseCourseData')
             .then(res => res.json())
@@ -106,10 +108,12 @@ const ChooseCourse = () => {
                                     <Card.Text className="text-center text-white p_l">
                                         <FontAwesomeIcon icon={faCheck} />  {item.advantage.happy}
                                     </Card.Text>
-                                    <NavLink to="/Registration"> <button className="purchase_btn text-uppercase mt-3">{item.btnName}</button></NavLink>
+                                    <NavLink to="/Registration">
+                                        <button onClick={() => sessionStorage.setItem('purchaseId', item.id)} className="purchase_btn text-uppercase mt-3">{item.btnName}</button>
+                                    </NavLink>
                                 </Card.Body>
                             </Card.ImgOverlay>
-                        </Card>) : 'loading.....'
+                        </Card>) : 'loading...'
                     }
                 </CardDeck>
             </Container>
