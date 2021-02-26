@@ -19,19 +19,6 @@ const CheckoutForm = ({ checkoutState1 }) => {
     const elements = useElements();
     const [process, setProcess] = useState(false);
 
-    const handleCardElementOnChange = (e) => {
-        if (e.elementType === "cardCvc") {
-            toast.warning(e.error.message, { position: toast.POSITION.TOP_CENTER })
-        }
-        if (e.elementType === "cardNumber") {
-            toast.warning(e.error.message, { position: toast.POSITION.TOP_CENTER })
-        }
-        if (e.elementType === "cardExpiry") {
-            toast.warning(e.error.message, { position: toast.POSITION.TOP_CENTER })
-        }
-
-    }
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -40,7 +27,7 @@ const CheckoutForm = ({ checkoutState1 }) => {
         });
         setProcess(paymentMethod, true)
         if (error) {
-            toast.warning(error.message, { position: toast.POSITION.TOP_CENTER });
+            toast.error(error.message, { position: toast.POSITION.TOP_CENTER });
         }
         if (!error) {
             console.log(paymentMethod)
@@ -73,15 +60,15 @@ const CheckoutForm = ({ checkoutState1 }) => {
         <div>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="" className="input_name pt-5 mt-md-2">CARD NUMBER</label>
-                <CardNumberElement id="CardNumber" onChange={handleCardElementOnChange} className="payment_inputs" />
+                <CardNumberElement className="payment_inputs" />
                 <Row>
                     <Col>
                         <label htmlFor="" className="input_name pt-4">EXPIRY DATE</label>
-                        <CardExpiryElement id="expiryDate" onChange={handleCardElementOnChange} className="payment_inputs" />
+                        <CardExpiryElement className="payment_inputs" />
                     </Col>
                     <Col>
                         <label htmlFor="" className="input_name pt-4">CVC CODE</label>
-                        <CardCvcElement id="cvcCode" onChange={handleCardElementOnChange} className="payment_inputs" />
+                        <CardCvcElement className="payment_inputs" />
                     </Col>
                 </Row>
                 {process ?

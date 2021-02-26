@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 
 const Paypal = ({ checkoutState }) => {
-    console.log(typeof(checkoutState));
     const paypal = useRef();
     const history = useHistory()
-
     useEffect(() => {
         window.paypal
             .Buttons({
