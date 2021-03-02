@@ -34,7 +34,7 @@ const Registration = () => {
             <Container className="my-5 py-5">
                 <Form onSubmit={handleSubmit(onSubmit)} className=" m-auto justify-content-center">
                     <Row>
-                        <Col>
+                        <Col sm={12} md={6} lg={6} xl={6}>
                           <p>First Name</p>
                             <Form.Control
                                 ref={
@@ -77,13 +77,13 @@ const Registration = () => {
                                 ref={
                                     register({
                                         required: true,
-                                        minLength: 20
+                                        minLength: 10
                                     })
                                 }
                                 className="p_2" type="text" name="address"
                             />
                             {errors.address?.type === "required" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Address is required</span>}
-                            {errors.address?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Twenty Characters</span>}
+                            {errors.address?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Ten Characters</span>}
 
                             <p>City</p>
                             <Form.Control
@@ -99,7 +99,7 @@ const Registration = () => {
                             {errors.city?.type === "minLength" && <span style={{ color: 'red' }}><FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Three Characters</span>}
 
                         </Col>
-                        <Col>
+                        <Col sm={12} md={6} lg={6} xl={6}>
                             <p>last Name</p>
                             <Form.Control
                                 ref={

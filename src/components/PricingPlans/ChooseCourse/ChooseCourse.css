@@ -10,7 +10,7 @@
 .p_l {
     padding-left: 2.3rem
 }
-
+ 
 .text_color {
-    color: #fcd842;
+    color: #fcd842 !important;
 }

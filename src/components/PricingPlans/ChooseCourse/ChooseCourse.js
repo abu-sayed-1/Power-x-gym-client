@@ -78,20 +78,20 @@ const ChooseCourse = () => {
             <section className="header_main mb-5">
                 <div className=" overly">
                     <NavBar />
-                    <h1 className="text-white text-center align-self-center">PRICING PLANS</h1>
+                    <h2 className="text-white text-center">PRICING PLANS</h2>
                 </div>
             </section>
             <Container className="mb-5">
                 <h1 className="text_color text-center">CHOOSE THE OFFER THAT SUITS YOU</h1>
-                <p className="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda <br /> illo quas consequatur unde facilis eligendi atque laudantium doloribus nobis aperiam.</p>
+                <p className="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda illo quas <br/> consequatur unde facilis eligendi atque  laudantium <br/> doloribus nobis aperiam.</p>
                 <CardDeck sm={12} md={6} lg={4} xl={4} className="my-5 py-5">
                     {
                         course ? course.map(item => <Card className=" " key={item._id}>
                             <Card.Img className="choose_course_img" src={item.img} />
                             <Card.ImgOverlay className="card_Img">
                                 <Card.Body>
-                                    <h6 className="text-center text_color">{item.billed}</h6>
-                                    <h2 className="text-center text-white">{item.title}</h2>
+                                    <h6 className="text-center text-uppercase text_color">{item.billed}</h6>
+                                    <h2 className="text-center text-white text-uppercase">{item.title}</h2>
                                     <h3 className="text-center price">{item.price}</h3>
                                     <Card.Text className="text-center text-white p_l ">
                                         <FontAwesomeIcon icon={faCheck} />    {item.advantage.mobile}
@@ -108,9 +108,15 @@ const ChooseCourse = () => {
                                     <Card.Text className="text-center text-white p_l">
                                         <FontAwesomeIcon icon={faCheck} />  {item.advantage.happy}
                                     </Card.Text>
-                                    <NavLink to="/Registration">
-                                        <button onClick={() => sessionStorage.setItem('purchaseId', item.id)} className="purchase_btn text-uppercase mt-3">{item.btnName}</button>
+                                   <div className="d-flex justify-content-center">
+                                   <NavLink to="/Registration">
+                                        <button
+                                            onClick={() => sessionStorage.setItem('purchaseId', item.id)}
+                                            className="text-uppercase purchase_btn mt-3">
+                                            {item.btnName}
+                                        </button>
                                     </NavLink>
+                                   </div>
                                 </Card.Body>
                             </Card.ImgOverlay>
                         </Card>) : 'loading...'

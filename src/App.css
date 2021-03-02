@@ -1,10 +1,10 @@
 .brand_btn {
   border: none;
   outline: none;
-  width: 10rem;
-  line-height: 40px;
+  width: 11rem;
+  line-height: 54px;
   font-weight: 700;
-  background-color: #fcd842;
+  background-color: #fcd842 !important;
 }
 
 .Training_Programs_Btn {
@@ -21,17 +21,9 @@
 .purchase_btn {
   border: none;
   outline: none !important;
-  width: 14rem;
+  width: 13rem;
   line-height: 49px;
   font-weight: 700;
   font-size: 1.2rem;
   background-color: #fcd842;
-  position: relative;
-  left: 2rem;
-  box-sizing: border-box;
 }
-/* 
-.checkout_form_btn{
-  position: absolute;
-  float: right;
-} */

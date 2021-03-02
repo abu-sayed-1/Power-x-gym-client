@@ -38,7 +38,7 @@ function App() {
         <Route path="/paymentsGateway">
           <PaymentsGateway />
         </Route>
-        <Route path="/MembershipCreated">
+        <Route path="/membershipCreated">
           <MembershipCreated />
         </Route>
         <Route path="*">

@@ -60,13 +60,13 @@ const CheckoutForm = ({ checkoutState1 }) => {
         <div>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="" className="input_name pt-5 mt-md-2">CARD NUMBER</label>
-                <CardNumberElement className="payment_inputs" />
+                <CardNumberElement  className="payment_inputs m-auto" />
                 <Row>
-                    <Col>
+                    <Col sm={12} md={6} lg={6} xl={6} >
                         <label htmlFor="" className="input_name pt-4">EXPIRY DATE</label>
                         <CardExpiryElement className="payment_inputs" />
                     </Col>
-                    <Col>
+                    <Col sm={12} md={6} lg={6} xl={6}>
                         <label htmlFor="" className="input_name pt-4">CVC CODE</label>
                         <CardCvcElement className="payment_inputs" />
                     </Col>

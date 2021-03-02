@@ -74,7 +74,7 @@ const PaymentsGateway = () => {
             <Container>
                 <div className="form-check card_content">
                     <Row>
-                        <Col xs={8}>
+                        <Col sm={12} md={6} lg={6} xl={6} xs={8}>
                             <input onClick={
                                 () => setCheckout({ credit: "creditCard" })}
                                 className="form-check-input check_input" type="radio"
@@ -83,9 +83,9 @@ const PaymentsGateway = () => {
                             <label className="form-check-label" htmlFor="inlineRadio1">
                                 <h4>Credit Card</h4>
                             </label>
-                            <p className="text_color mt-2">Safe money transfer using your bank account. Visa, Maestro, Discover, American Express</p>
+                            <p className="text_colors mt-2">Safe money transfer using your bank account. Visa, Maestro, Discover, American Express</p>
                         </Col>
-                        <Col>
+                        <Col sm={12} md={6} lg={6} xl={6}>
                             <div className="pl-md-5">
                                 {
                                     creditCardImages.map(
@@ -95,21 +95,21 @@ const PaymentsGateway = () => {
                             </div>
                         </Col>
                     </Row>
-                    <Elements stripe={stripePromise}>
+                    <Elements  stripe={stripePromise}>
                         <CheckoutForm checkoutState1={checkoutState1} />
                     </Elements>
                 </div>
                 <Row className="p-5 mt-5 m-0 paypal_content">
-                    <Col>
+                    <Col sm={12} md={6} lg={6} xl={6} >
                         <div className="form-check">
                             <input onClick={() => setCheckout({ paypal: "paypal" })} className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
                             <label className="form-check-label" htmlFor="inlineRadio2">
                                 <h4>Paypal</h4>
                             </label>
-                            <p className="pt-4 text_color">You well be redirected to PayPal website to complete your purchase securely.</p>
+                            <p className="pt-4 text_colors ">You well be redirected to PayPal website to complete your purchase securely.</p>
                         </div>
                     </Col>
-                    <Col xs={4}>
+                    <Col sm={12} md={6} lg={6} xl={6}  xs={4}>
                         {checkout.paypal ? <Paypal checkoutState={checkoutState} /> : <img src="https://tse3.mm.bing.net/th?id=OIP.5WodCMcfWx9Gq8jWPTrmGQHaC4&pid=Api&P=0&w=474&h=185" width='200' className="d-flux justify-content-center" alt="" />}
                     </Col>
                 </Row>

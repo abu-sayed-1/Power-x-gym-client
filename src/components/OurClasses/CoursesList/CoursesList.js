@@ -62,7 +62,7 @@ const CoursesList = () => {
             <section className="header_main mb-5">
                 <div className=" overly">
                     <NavBar />
-                    <h1 className="text-white text-center align_self_center">OUR CLASSES</h1>
+                    <h1 className="text-white text-center">OUR CLASSES</h1>
                 </div>
             </section>
             <Container className="pt-5">
