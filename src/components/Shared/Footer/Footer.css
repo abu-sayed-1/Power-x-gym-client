@@ -6,3 +6,7 @@
     background-color: #171426;
     min-height: 60vh
 }
+
+.media_icon :hover {
+  color: rgba(18, 178, 241, 0.719);
+}

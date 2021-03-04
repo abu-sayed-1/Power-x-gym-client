@@ -2,7 +2,7 @@ import React from 'react';
 import "./Footer.css"
 import { Col, Container, Navbar, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileMedical } from '@fortawesome/free-solid-svg-icons';
+import { faFacebookF, faTwitterSquare, faLinkedin, faGithub, faYoutube,faInstagram,faMessenger } from "@fortawesome/free-brands-svg-icons"
 
 
 const Footer = () => {
@@ -28,7 +28,15 @@ const Footer = () => {
                     </Col>
                     <Col>
                         <h2 className="text-white">Connect whit Us</h2>
-                        <FontAwesomeIcon icon={faFileMedical} />
+                        <div>
+                            <a href="//facebook.com"><FontAwesomeIcon className="ml-3 text-white media_icon" icon={faFacebookF} /></a>
+                            <a href="//twitter.com"><FontAwesomeIcon className="ml-3 text-white media_icon" icon={faTwitterSquare} /></a>
+                            <a href="//Linkedin.com"><FontAwesomeIcon className="ml-3 text-white media_icon" icon={faLinkedin} /></a>
+                            <a href="//github.com"><FontAwesomeIcon className="ml-3 text-white media_icon" icon={faGithub} /></a>
+                            <a href="//youtube.com"> <FontAwesomeIcon className="ml-3 text-white media_icon" icon={faYoutube} /></a>
+                            <a href="//instagram.com"> <FontAwesomeIcon className="ml-3 text-white media_icon" icon={faInstagram} /></a>
+                        </div>
+
                         <p className="text-white">Forum</p>
 
 
