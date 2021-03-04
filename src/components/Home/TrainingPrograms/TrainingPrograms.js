@@ -4,7 +4,12 @@ import { Card, CardDeck, Container } from 'react-bootstrap';
 const TrainingPrograms = ({ TrainingData }) => {
     return (
         <Container >
-            <h2 className="text-uppercase mt-5 pt-5 text-center">Training <span className="text-warning">Programs</span> </h2>
+            <h2
+                className="text-uppercase mt-5
+                 pt-5 text-center">Training
+                 <span className="text-warning">Programs
+                  </span>
+            </h2>
             <CardDeck className="mt-5 pt-5">
                 {
                     TrainingData ? TrainingData.map(item => <Card key={item._id}>

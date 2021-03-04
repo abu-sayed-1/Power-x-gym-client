@@ -1,6 +1,9 @@
 import React from 'react';
 import "./Footer.css"
 import { Col, Container, Navbar, Row } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileMedical } from '@fortawesome/free-solid-svg-icons';
+
 
 const Footer = () => {
     return (
@@ -25,7 +28,9 @@ const Footer = () => {
                     </Col>
                     <Col>
                         <h2 className="text-white">Connect whit Us</h2>
+                        <FontAwesomeIcon icon={faFileMedical} />
                         <p className="text-white">Forum</p>
+
 
                     </Col>
                     <Col>
@@ -34,7 +39,6 @@ const Footer = () => {
                         updates from the Shredder Weight
                         loss Academy
                     </p>
-
                     </Col>
                 </Row>
             </Container>

@@ -71,24 +71,25 @@ const CheckoutForm = ({ checkoutState1, checkout }) => {
                         <CardCvcElement className="payment_inputs" />
                     </Col>
                 </Row>
-                {/* {process ?
-                    <Button id="payWith_Stripe" variant="primary" disabled>
+                {process ?
+                    <div className="paymentsAll_btn">
+                        <Button className="text-black" id="payWith_Stripe" variant="primary" disabled>
+                            NEXT
                         <Spinner
-                            as="span"
-                            animation="grow"
-                            size="sm"
-                            role="status"
-                            aria-hidden="true"
-                        />
-                      Process...
-                    </Button>
-                    : <button id="payWith_Stripe" type="submit">NEXT</button>} */}
+                                animation="border"
+                                size="sm"
+                                variant="black"
+                                className="ml-3"
+                            />
+                        </Button>
+                    </div>
+                    : <div className="paymentsAll_btn">
+                        {
+                            checkout.credit && <button id="payWith_Stripe" type="submit">NEXT</button>
+                        }
+                    </div>}
 
-                <div className="paymentsAll_btn">
-                    {
-                        checkout.credit && <button id="payWith_Stripe" type="submit">NEXT</button>
-                    }
-                </div>
+
 
 
             </form>

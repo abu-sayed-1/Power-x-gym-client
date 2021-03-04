@@ -9,8 +9,8 @@ import NavBar from '../../Shared/Navbar/NavBar';
 import Paypal from './Paypal/Paypal';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements, } from "@stripe/react-stripe-js";
-import CheckoutForm from './Paypal/CheckoutForm/CheckoutForm';
 import { toast } from 'react-toastify';
+import CheckoutForm from './CheckoutForm/CheckoutForm';
 toast.configure()
 
 const creditCardImages = [
@@ -126,7 +126,7 @@ const PaymentsGateway = () => {
 
                     {
                         checkout.paypal && <button className="brand_btn payments_btn" onClick={() =>
-                            toast.error('Please Chooses the Paypal or Debit/Credit Card button !', { position: toast.POSITION.TOP_CENTER })
+                            toast.error('Please Chooses the Paypal Debit/Credit Card button !', { position: toast.POSITION.TOP_CENTER })
                         }
                         >NEXT</button>
                     }
@@ -138,3 +138,4 @@ const PaymentsGateway = () => {
 };
 
 export default PaymentsGateway;
+ 

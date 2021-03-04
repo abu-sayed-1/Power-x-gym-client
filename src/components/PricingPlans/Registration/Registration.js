@@ -36,7 +36,7 @@ const Registration = () => {
                 <Form onSubmit={handleSubmit(onSubmit)} className=" m-auto justify-content-center">
                     <Row>
                         <Col sm={12} md={6} lg={6} xl={6}>
-                          <p>First Name</p>
+                            <p>First Name</p>
                             <Form.Control
                                 ref={
                                     register({
@@ -169,7 +169,7 @@ const Registration = () => {
                         </Col>
                     </Row>
                     <br />
-                  <button type="submit" className="registration">NEXT</button>
+                    <button type="submit" className="registration">NEXT</button>
                 </Form>
             </Container>
             <Footer />
