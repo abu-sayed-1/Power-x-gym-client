@@ -126,7 +126,7 @@ const PaymentsGateway = () => {
 
                     {
                         checkout.paypal && <button className="brand_btn payments_btn" onClick={() =>
-                            toast.error('Please Choose the Paypal or Debit/Credit Card button !', { position: toast.POSITION.TOP_CENTER })
+                            toast.error('Please Chooses the Paypal or Debit/Credit Card button !', { position: toast.POSITION.TOP_CENTER })
                         }
                         >NEXT</button>
                     }
