@@ -16,13 +16,13 @@ const NavBar = () => {
                 </Navbar.Toggle>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto ">
-                        <NavLink to="/home" className="mr-4 text-white nav_item" href="#">Home</NavLink>
-                        <Nav.Link className="mr-4 text-white nav_item" href="#">Services</Nav.Link>
+                        <NavLink to="/home" className="mr-4 text-white nav_item">Home</NavLink>
+                        <NavLink to="/" className="mr-4 text-white nav_item">Services</NavLink>
                         <NavLink to="/coursesList" className="mr-4 text-white nav_item">Our classes</NavLink>
-                        <Nav.Link className="mr-4 text-white nav_item" href="#">About us</Nav.Link>
-                        <NavLink to="/" className="mr-4 text-white nav_item" href="#">Blog</NavLink>
+                        <NavLink to="/" className="mr-4 text-white nav_item">About us</NavLink>
+                        <NavLink to="/" className="mr-4 text-white nav_item">Blog</NavLink>
                         <NavLink to="/chooseCourse" className="mr-4 text-white nav_item">Pricing</NavLink>
-                        <Nav.Link className="mr-4 text-white nav_item" href="#">Contact Us</Nav.Link>
+                        <NavLink to="/" className="mr-4 text-white nav_item">Contact Us</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

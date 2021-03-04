@@ -9,6 +9,7 @@ import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom';
 
 const Registration = () => {
+    const userEmail = sessionStorage.getItem('userEmail');
     const { register, handleSubmit, errors } = useForm();
     const history = useHistory();
     const onSubmit = data => {
@@ -52,7 +53,7 @@ const Registration = () => {
 
                             <p>Email</p>
                             <Form.Control
-                                // value="abusayedrakib60@gmail.com"
+                                value={userEmail}
                                 ref={
                                     register({
                                         required: true,

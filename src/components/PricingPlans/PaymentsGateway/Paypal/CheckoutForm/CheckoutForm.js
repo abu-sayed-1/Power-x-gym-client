@@ -12,7 +12,7 @@ import { toast } from 'react-toastify';
 import { Button, Col, Row, Spinner } from 'react-bootstrap';
 
 toast.configure()
-const CheckoutForm = ({ checkoutState1 }) => {
+const CheckoutForm = ({ checkoutState1, checkout }) => {
     console.log(checkoutState1, '[checkoutState1]');
     const history = useHistory()
     const stripe = useStripe();
@@ -60,7 +60,7 @@ const CheckoutForm = ({ checkoutState1 }) => {
         <div>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="" className="input_name pt-5 mt-md-2">CARD NUMBER</label>
-                <CardNumberElement  className="payment_inputs m-auto" />
+                <CardNumberElement className="payment_inputs m-auto" />
                 <Row>
                     <Col sm={12} md={6} lg={6} xl={6} >
                         <label htmlFor="" className="input_name pt-4">EXPIRY DATE</label>
@@ -71,8 +71,8 @@ const CheckoutForm = ({ checkoutState1 }) => {
                         <CardCvcElement className="payment_inputs" />
                     </Col>
                 </Row>
-                {process ?
-                    <Button variant="primary" disabled>
+                {/* {process ?
+                    <Button id="payWith_Stripe" variant="primary" disabled>
                         <Spinner
                             as="span"
                             animation="grow"
@@ -82,7 +82,14 @@ const CheckoutForm = ({ checkoutState1 }) => {
                         />
                       Process...
                     </Button>
-                    : <button type="submit">pay</button>}
+                    : <button id="payWith_Stripe" type="submit">NEXT</button>} */}
+
+                <div className="paymentsAll_btn">
+                    {
+                        checkout.credit && <button id="payWith_Stripe" type="submit">NEXT</button>
+                    }
+                </div>
+
 
             </form>
         </div>

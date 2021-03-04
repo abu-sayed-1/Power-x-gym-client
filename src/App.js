@@ -12,8 +12,9 @@ import ChooseCourse from './components/PricingPlans/ChooseCourse/ChooseCourse';
 import Registration from './components/PricingPlans/Registration/Registration';
 import PaymentsGateway from './components/PricingPlans/PaymentsGateway/PaymentsGateway';
 import MembershipCreated from './components/PricingPlans/MembershipCreated/MembershipCreated';
+import LoginManagement from './components/PricingPlans/LoginManagement/LoginManagement';
+import PrivateRoute from './components/PricingPlans/PrivateRoute/PrivateRoute';
 function App() {
-  // pk_test_51HaKX2FWzFyXdW5KjdYVQtPEcdPZOSLq0nvfi4MfePscvZAop5VwXrGvH9Z0XjenRtpUwNFsX07um8rLzI8yrrB600opOV9Hw9
   return (
     <Router>
       <Switch>
@@ -32,14 +33,17 @@ function App() {
         <Route path="/chooseCourse">
           <ChooseCourse />
         </Route>
-        <Route path="/Registration">
-          <Registration />
-        </Route>
-        <Route path="/paymentsGateway">
+        <PrivateRoute path="/paymentsGateway">
           <PaymentsGateway />
-        </Route>
+        </PrivateRoute>
         <Route path="/membershipCreated">
           <MembershipCreated />
+        </Route>
+        <PrivateRoute path="/registration">
+          <Registration />
+        </PrivateRoute>
+        <Route path="/loginManagement">
+          <LoginManagement />
         </Route>
         <Route path="*">
           <PageNotFound />
@@ -48,5 +52,5 @@ function App() {
     </Router>
   );
 }
- 
+
 export default App;
