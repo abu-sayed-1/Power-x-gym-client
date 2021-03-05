@@ -12,7 +12,7 @@ const ChooseCourse = () => {
     const [course, setCourse] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:4000/chooseCourseData')
+        fetch('https://guarded-meadow-19744.herokuapp.com/chooseCourseData')
             .then(res => res.json())
             .then(data => setCourse(data));
     }, [])

@@ -12,7 +12,7 @@ import { useHistory } from 'react-router-dom';
 const CoursesList = () => {
     const [coursesData, setCoursesData] = useState(null);
     useEffect(() => {
-        fetch('http://localhost:4000/coursesByData')
+        fetch('https://guarded-meadow-19744.herokuapp.com/coursesByData')
             .then(res => res.json())
             .then(data => setCoursesData(data))
     }, []);

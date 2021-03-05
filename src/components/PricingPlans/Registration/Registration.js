@@ -13,7 +13,7 @@ const Registration = () => {
     const { register, handleSubmit, errors } = useForm();
     const history = useHistory();
     const onSubmit = data => {
-        fetch('http://localhost:4000/personalDetail', {
+        fetch('https://guarded-meadow-19744.herokuapp.com/personalDetail', {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(data)

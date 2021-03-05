@@ -34,7 +34,7 @@ const CheckoutForm = ({ checkoutState1, checkout }) => {
             try {
                 const { id } = paymentMethod;
                 const response = await axios.post(
-                    "http://localhost:4000/stripe/charge",
+                    "https://guarded-meadow-19744.herokuapp.com/stripe/charge",
                     {
                         amount: checkoutState1,
                         id: id,

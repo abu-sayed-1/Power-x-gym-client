@@ -15,13 +15,13 @@ const ClassSchedule = () => {
     console.log(classScheduleData, 'data')
 
     useEffect(() => {
-        fetch(`http://localhost:4000/checkout${id}`)
+        fetch(`https://guarded-meadow-19744.herokuapp.com/checkout${id}`)
             .then(res => res.json())
             .then(data => setClassSchedule(data))
     }, [id]);
 
     useEffect(() => {
-        fetch(`http://localhost:4000/classScheduleSpecificData`)
+        fetch(`https://guarded-meadow-19744.herokuapp.com/classScheduleSpecificData`)
             .then(res => res.json())
             .then(data => setClassScheduleData(data))
     }, []);
