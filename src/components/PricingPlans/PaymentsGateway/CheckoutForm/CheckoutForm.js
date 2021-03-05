@@ -53,7 +53,7 @@ const CheckoutForm = ({ checkoutState1, checkout }) => {
             catch (error) {
                 console.log(error.message)
             }
-        }
+        };
     };
 
     return (
@@ -88,10 +88,6 @@ const CheckoutForm = ({ checkoutState1, checkout }) => {
                             checkout.credit && <button id="payWith_Stripe" type="submit">NEXT</button>
                         }
                     </div>}
-
-
-
-
             </form>
         </div>
     );

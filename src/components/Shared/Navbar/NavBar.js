@@ -23,7 +23,7 @@ const NavBar = () => {
                         <NavLink to="/" className="mr-4 text-white nav_item">Blog</NavLink>
                         <NavLink to="/chooseCourse" className="mr-4 text-white nav_item">Pricing</NavLink>
                         <NavLink to="/" className="mr-4 text-white nav_item">Contact Us</NavLink>
-                    </Nav>
+                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
         </div>

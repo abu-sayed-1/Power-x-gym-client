@@ -22,8 +22,8 @@ const Registration = () => {
                 if (result) {
                     history.push('/paymentsGateway')
                 }
-            })
-    }
+            });
+    };
     return (
         <>
             <section className="header_main mb-5">

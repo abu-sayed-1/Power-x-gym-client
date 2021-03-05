@@ -15,7 +15,7 @@ const OurDream = ({ ourDreamData }) => {
                         <h1 className=""><span className="text-warning">{ourDreamData[0].title}</span>{ourDreamData[0].secondTitle}</h1>
                         <p className="pt-4 our_dream_description">{ourDreamData[0].ourDreamDescription}</p>
                     </Col>
-                </Row> : <h2>loading...</h2>
+                </Row> : <h2>loading.....</h2>
             }
         </Container>
     );

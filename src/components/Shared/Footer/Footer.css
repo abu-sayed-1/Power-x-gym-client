@@ -7,6 +7,12 @@
   min-height: 60vh
 }
 
+.copy_rights {
+  background-color: #171426;
+  border: none !important;
+
+}
+
 .media_icon :hover {
   color: rgba(18, 178, 241, 0.719);
 }

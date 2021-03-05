@@ -5,7 +5,7 @@ const PrivateRoute = ({ children, ...rest }) => {
   const email = sessionStorage.getItem('userEmail');
   return (
     <Route
-      {...rest}
+     {...rest}
       render={({ location }) =>
         email ? (
           children

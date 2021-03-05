@@ -106,7 +106,7 @@ const PaymentsGateway = () => {
                             <label className="form-check-label" htmlFor="inlineRadio2">
                                 <h4>Paypal</h4>
                             </label>
-                            <p className="pt-4 text_colors ">You well be redirected to PayPal website to complete your purchase securely.</p>
+                            <p className="pt-4 text_colors">You well be redirected to PayPal website to complete your purchase securely...</p>
                         </div>
                     </Col>
                     <Col sm={12} md={6} lg={6} xl={6} xs={4}>

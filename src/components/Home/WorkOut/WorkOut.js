@@ -9,7 +9,7 @@ const WorkOut = ({workOutData}) => {
         <div className="container mt-5">
             <CardDeck className=" m-0 p-0 w-100 h-25">
                 {
-                    workOutData ? workOutData.map(item => <Card key={item._id}>
+                    workOutData ? workOutData.map(item => <Card sm={12} md={6} lg={4} xl={4} key={item._id}>
                         <Card.Img variant="top" className="workOutBg_img" src={item.img} />
                         <Card.ImgOverlay className="card_Img">
                             <Card.Body className="text-center">
@@ -20,7 +20,7 @@ const WorkOut = ({workOutData}) => {
                                 </Card.Text>
                             </Card.Body>
                         </Card.ImgOverlay>
-                    </Card>) : <h2>loading...</h2>
+                    </Card>) : <h2>loading....</h2>
                 }
             </CardDeck>
         </div>

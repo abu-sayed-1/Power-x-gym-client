@@ -50,7 +50,7 @@ const ClassSchedule = () => {
                             }
                         </>
                     </Col>
-                </Row> : ''}
+                </Row> : 'Loading....'}
                 {
                     classScheduleData ? <div>
                         <Row>

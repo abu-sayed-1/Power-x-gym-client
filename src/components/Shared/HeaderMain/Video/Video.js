@@ -13,7 +13,6 @@ const Video = () => {
                 src={videoSrc}
                 poster={poster}
             />
-
         </div>
     );
 };

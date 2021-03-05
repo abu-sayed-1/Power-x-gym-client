@@ -15,7 +15,7 @@ const ChooseUs = ({ chooseUsData }) => {
                                 {item.chooseUsDescription}
                             </Card.Text>
                         </Card.Body>
-                    </Card>) : <h2>loading...</h2>
+                    </Card>) : <h2>loading.....</h2>
                 }
             </CardDeck>
         </Container>

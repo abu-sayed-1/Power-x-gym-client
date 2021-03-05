@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 const Paypal = ({ checkoutState }) => {
     const paypal = useRef();
-    const history = useHistory()
+    const history = useHistory();
     useEffect(() => {
         window.paypal
             .Buttons({

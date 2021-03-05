@@ -65,7 +65,7 @@ const ChooseCourse = () => {
                                     </div>
                                 </Card.Body>
                             </Card.ImgOverlay>
-                        </Card>) : 'loading...'
+                        </Card>) : 'loading....'
                     }
                 </CardDeck>
             </Container>
