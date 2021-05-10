@@ -9,15 +9,13 @@ import {
 import { useHistory } from 'react-router-dom';
 import axios from "axios";
 import { toast } from 'react-toastify';
-import { Button, Col, Row, Spinner } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 toast.configure()
-const CheckoutForm = ({ checkoutState1, checkout }) => {
-    console.log(checkoutState1, '[checkoutState1]');
+const CheckoutForm = ({ price, handleProcessing }) => {
     const history = useHistory()
     const stripe = useStripe();
     const elements = useElements();
-    const [process, setProcess] = useState(false);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -25,18 +23,17 @@ const CheckoutForm = ({ checkoutState1, checkout }) => {
             type: 'card',
             card: elements.getElement(CardNumberElement, CardExpiryElement, CardCvcElement),
         });
-        setProcess(paymentMethod, true)
         if (error) {
             toast.error(error.message, { position: toast.POSITION.TOP_CENTER });
         }
         if (!error) {
-            console.log(paymentMethod)
+            handleProcessing(true);
             try {
                 const { id } = paymentMethod;
                 const response = await axios.post(
                     "https://guarded-meadow-19744.herokuapp.com/stripe/charge",
                     {
-                        amount: checkoutState1,
+                        amount: price + '00',
                         id: id,
                     }
                 );
@@ -45,7 +42,7 @@ const CheckoutForm = ({ checkoutState1, checkout }) => {
                     history.push('/MembershipCreated');
                 }
                 if (response.data.success === false) {
-                    setProcess(false)
+                    handleProcessing(false)
                     toast.error(response.data.message, { position: toast.POSITION.TOP_CENTER })
                 }
 
@@ -58,7 +55,7 @@ const CheckoutForm = ({ checkoutState1, checkout }) => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id="stripePaymentBtn">
                 <label htmlFor="" className="input_name pt-5 mt-md-2">CARD NUMBER</label>
                 <CardNumberElement className="payment_inputs m-auto" />
                 <Row>
@@ -71,23 +68,6 @@ const CheckoutForm = ({ checkoutState1, checkout }) => {
                         <CardCvcElement className="payment_inputs" />
                     </Col>
                 </Row>
-                {process ?
-                    <div className="paymentsAll_btn">
-                        <Button className="text-black" id="payWith_Stripe" variant="primary" disabled>
-                            NEXT
-                        <Spinner
-                                animation="border"
-                                size="sm"
-                                variant="black"
-                                className="ml-3"
-                            />
-                        </Button>
-                    </div>
-                    : <div className="paymentsAll_btn">
-                        {
-                            checkout.credit && <button id="payWith_Stripe" type="submit">NEXT</button>
-                        }
-                    </div>}
             </form>
         </div>
     );

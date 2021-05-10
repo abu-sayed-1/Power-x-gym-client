@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './PaymentsGateway.css';
 import amex from '../../../images/ImageAndIcon/credit-cards_amex.png';
 import mastercard from '../../../images/ImageAndIcon/credit-cards_mastercard.png';
 import visaCard from '../../../images/ImageAndIcon/credit-cards_visa.png';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row, Spinner } from 'react-bootstrap';
 import Footer from '../../Shared/Footer/Footer';
 import NavBar from '../../Shared/Navbar/NavBar';
 import Paypal from './Paypal/Paypal';
@@ -20,49 +20,15 @@ const creditCardImages = [
 ];
 
 const PaymentsGateway = () => {
+    const [checkout, setCheckout] = useState({ paypal: '', credit: '' });
+    const [process, setProcess] = useState(false);
     const stripePromise = loadStripe("pk_test_51HaKX2FWzFyXdW5KjdYVQtPEcdPZOSLq0nvfi4MfePscvZAop5VwXrGvH9Z0XjenRtpUwNFsX07um8rLzI8yrrB600opOV9Hw9");
-    const [courseAmount, setCourseAmount] = useState({ amount: '' });
-    const [courseAmount1, setCourseAmount1] = useState({ amount: '' });
-    const checkoutState = courseAmount.amount && courseAmount.amount;
-    const checkoutState1 = courseAmount1.amount && courseAmount1.amount;
+    const price = sessionStorage.getItem('purchaseId').substring(1);
 
-    let specificId = sessionStorage.getItem('purchaseId');
-    useEffect(() => {
-        // paypal =================>
-        if (specificId == 1) {
-            setCourseAmount({ amount: 180 });
-        };
-
-        if (specificId == 2) {
-            setCourseAmount({ amount: 154 });
-        };
-
-        if (specificId == 3) {
-            setCourseAmount({ amount: 115 });
-        };
-        // stripe ===============================>
-        if (specificId == 1) {
-            setCourseAmount1({ amount: 14000 });
-        };
-
-        if (specificId == 2) {
-            setCourseAmount1({ amount: 12000 });
-        };
-
-        if (specificId == 3) {
-            setCourseAmount1({ amount: 9000 });
-        };
-    }, [specificId]);
-
-    //==========================================================>
-
-    const [checkout, setCheckout] = useState(
-        {
-            paypal: '',
-            credit: ''
-        }
-    );
-
+    const handleProcessing = isProcess => {
+        console.log(isProcess);
+        setProcess(isProcess);
+    };
     return (
         <>
             <section className="header_main mb-5">
@@ -96,7 +62,10 @@ const PaymentsGateway = () => {
                         </Col>
                     </Row>
                     <Elements stripe={stripePromise}>
-                        <CheckoutForm checkoutState1={checkoutState1} checkout={checkout} />
+                        <CheckoutForm
+                            price={price}
+                            handleProcessing={handleProcessing}
+                        />
                     </Elements>
                 </div>
                 <Row className="p-5 mt-5 mb-5 paypal_content">
@@ -110,10 +79,10 @@ const PaymentsGateway = () => {
                         </div>
                     </Col>
                     <Col sm={12} md={6} lg={6} xl={6} xs={4}>
-                        {checkout.paypal ? <Paypal checkoutState={checkoutState} /> : <img src="https://tse3.mm.bing.net/th?id=OIP.5WodCMcfWx9Gq8jWPTrmGQHaC4&pid=Api&P=0&w=474&h=185" width='200' className="d-flux justify-content-center" alt="" />}
+                        {checkout.paypal ? <Paypal price={price} />
+                            : <img src="https://tse3.mm.bing.net/th?id=OIP.5WodCMcfWx9Gq8jWPTrmGQHaC4&pid=Api&P=0&w=474&h=185" width='200' className="d-flux justify-content-center" alt="" />}
                     </Col>
                 </Row>
-
 
                 <div className="paymentsAll_btn">
                     {
@@ -126,10 +95,39 @@ const PaymentsGateway = () => {
 
                     {
                         checkout.paypal && <button className="brand_btn payments_btn" onClick={() =>
-                            toast.error('Please Chooses the Paypal Debit/Credit Card button !', { position: toast.POSITION.TOP_CENTER })
+                            toast.error('Please Chooses the Paypal Debit/Credit Card button !',
+                                { position: toast.POSITION.TOP_CENTER })
                         }
                         >NEXT</button>
                     }
+                    {process ?
+                        <button className="text-black 
+                                brand_btn 
+                                disabled_color 
+                                payments_btn"FF
+                            variant="primary"
+                            disabled
+                        >
+                            <Spinner
+                                animation="border"
+                                size="sm"
+                                variant="black"
+                                className="mr-3"
+                            />
+                            NEXT...
+                        </button>
+                        : <>
+                            {
+                                checkout.credit &&
+                                <button
+                                    className="brand_btn payments_btn"
+                                    form="stripePaymentBtn"
+                                    type="submit"
+                                >
+                                    NEXT..
+                            </button>
+                            }
+                        </>}
                 </div>
             </Container>
             <Footer />
@@ -138,4 +136,3 @@ const PaymentsGateway = () => {
 };
 
 export default PaymentsGateway;
- 

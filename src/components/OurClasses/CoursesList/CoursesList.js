@@ -44,7 +44,7 @@ const CoursesList = () => {
                                 </button>
                             </Col>
 
-                        ) : '.'
+                        ) : ''
                     }
                 </Row>
             </Container>

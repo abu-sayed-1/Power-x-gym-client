@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 
-const Paypal = ({ checkoutState }) => {
+const Paypal = ({ price }) => {
     const paypal = useRef();
     const history = useHistory();
     useEffect(() => {
@@ -15,8 +15,8 @@ const Paypal = ({ checkoutState }) => {
                             {
                                 description: "Cool looking table",
                                 amount: {
-                                    currency_code: "CAD",
-                                    value: checkoutState,
+                                    currency_code: "USD",
+                                    value: price,
                                 },
                             },
                         ],
@@ -33,7 +33,7 @@ const Paypal = ({ checkoutState }) => {
                 }
             })
             .render(paypal.current)
-    }, [checkoutState])
+    }, [price])
     return (
         <div>
             <div ref={paypal}></div>

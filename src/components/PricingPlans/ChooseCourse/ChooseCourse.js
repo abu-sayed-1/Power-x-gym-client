@@ -57,7 +57,7 @@ const ChooseCourse = () => {
                                     <div className="d-flex justify-content-center">
                                         <NavLink to="/Registration">
                                             <button
-                                                onClick={() => sessionStorage.setItem('purchaseId', item.id)}
+                                                onClick={() => sessionStorage.setItem('purchaseId', item.price)}
                                                 className="text-uppercase purchase_btn mt-3">
                                                 {item.btnName}
                                             </button>

@@ -51,45 +51,13 @@ input[type='radio']:checked:after {
     border: 2px solid white;
 }
 
-/* checkoutFrom Component Css here */
-@media screen and (min-device-width: 280px) and (max-device-width: 767px) {
-    #payWith_Stripe {
-        position: relative;
-        border: none;
-        outline: none;
-        top: 34.3rem;
-        width: 8rem;
-        line-height: 50px;
-        font-weight: 700;
-        background-color: #fcd842 !important;
-    }
-}
-
-@media screen and (min-width:768px) {
-    #payWith_Stripe {
-        position: relative;
-        float: right;
-        border: none;
-        outline: none;
-        top: 24rem;
-        width: 11rem;
-        line-height: 50px;
-        font-weight: 700;
-        background-color: #fcd842 !important;
-    }
-}
-
-@media screen and (min-device-width: 280px) and (max-device-width: 767px) {
-    .paymentsAll_btn {
-        display: flex !important;
-        justify-content: center !important;
-    }
-}
-
-/* payment Gateway component buttons css here payment_btn*/
 @media screen and (min-width:768px) {
     .payments_btn {
         position: relative;
         float: right;
     }
+}
+
+.disabled_color {
+    background: #fcd7426e !important
 }

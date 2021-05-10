@@ -17,7 +17,7 @@ const Home = () => {
         fetch("https://guarded-meadow-19744.herokuapp.com/homePageAllData")
             .then(res => res.json())
             .then(data => setHomePageAllData(data))
-    }, [])
+    }, []);
     return (
         <div>
             <HeaderMain />
