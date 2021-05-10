@@ -1,0 +1,21 @@
+.memberShip_created {
+    background-image: url("../../../images/ImageAndIcon/completed.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.member_content {
+    height: 54rem;
+}
+
+.member_content div {
+    padding-bottom: 12rem;
+}
+
+.member_content div h3 {
+    border-bottom: 2px solid rgb(6, 240, 123);
+}
+
+.member_content div a {
+    font-size: 18px;
+}

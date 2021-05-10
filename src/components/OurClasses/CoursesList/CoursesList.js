@@ -26,7 +26,7 @@ const CoursesList = () => {
 
         <>
             <section className="header_main mb-5">
-                <div className=" overly">
+                <div className="overly">
                     <NavBar />
                     <h1 className="text-white text-center">OUR CLASSES</h1>
                 </div>
@@ -36,10 +36,10 @@ const CoursesList = () => {
                     {
                         coursesData ? coursesData.map(list =>
                             <Col sm={12} md={6} lg={4} xl={4} key={list._id}>
-                             <img src={list.img} alt="" className="course_img" />
+                                <img src={list.img} alt="" className="course_img" />
                                 <button onClick={() => handleCourseDetail(list.id)}
                                     className="courses_btn text-uppercase">
-                                      {list.trainingName}
+                                    {list.trainingName}
                                     <FontAwesomeIcon icon={faArrowRight} className="ml-2" />
                                 </button>
                             </Col>

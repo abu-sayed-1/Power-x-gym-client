@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     CardCvcElement,
     CardExpiryElement,
@@ -12,7 +12,8 @@ import { toast } from 'react-toastify';
 import { Col, Row } from 'react-bootstrap';
 
 toast.configure()
-const CheckoutForm = ({ price, handleProcessing }) => {
+const CheckoutForm = ({ price, handleProcessing, checkout }) => {
+    console.log(checkout)
     const history = useHistory()
     const stripe = useStripe();
     const elements = useElements();
@@ -23,10 +24,15 @@ const CheckoutForm = ({ price, handleProcessing }) => {
             type: 'card',
             card: elements.getElement(CardNumberElement, CardExpiryElement, CardCvcElement),
         });
-        if (error) {
-            toast.error(error.message, { position: toast.POSITION.TOP_CENTER });
+        if (!checkout.credit) {
+            toast.error("choose the stripe checkout!",
+                { position: toast.POSITION.TOP_CENTER })
         }
-        if (!error) {
+        else {
+            toast.error(error && error.message,
+                { position: toast.POSITION.TOP_CENTER });
+        }
+        if (checkout.credit && !error) {
             handleProcessing(true);
             try {
                 const { id } = paymentMethod;
@@ -43,7 +49,8 @@ const CheckoutForm = ({ price, handleProcessing }) => {
                 }
                 if (response.data.success === false) {
                     handleProcessing(false)
-                    toast.error(response.data.message, { position: toast.POSITION.TOP_CENTER })
+                    toast.error(response.data.message,
+                        { position: toast.POSITION.TOP_CENTER })
                 }
 
             }

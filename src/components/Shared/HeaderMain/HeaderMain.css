@@ -12,10 +12,6 @@
     background: rgba(36, 34, 65, 0.603);
 }
 
-.video ::after {
-    background: rgba(36, 34, 65, 0.603) !important;
-}
-
 .line_height {
     line-height: 2rem;
 }

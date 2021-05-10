@@ -26,7 +26,6 @@ const PaymentsGateway = () => {
     const price = sessionStorage.getItem('purchaseId').substring(1);
 
     const handleProcessing = isProcess => {
-        console.log(isProcess);
         setProcess(isProcess);
     };
     return (
@@ -42,8 +41,10 @@ const PaymentsGateway = () => {
                     <Row>
                         <Col sm={12} md={6} lg={6} xl={6} xs={8}>
                             <input onClick={
-                                () => setCheckout({ credit: "creditCard" })}
-                                className="form-check-input check_input" type="radio"
+                                () => setCheckout({ credit: "creditCard", paypal: '' })
+                            }
+                                className="form-check-input
+                                check_input" type="radio"
                                 name="inlineRadioOptions" id="inlineRadio1"
                                 value="option1" />
                             <label className="form-check-label" htmlFor="inlineRadio1">
@@ -64,21 +65,27 @@ const PaymentsGateway = () => {
                     <Elements stripe={stripePromise}>
                         <CheckoutForm
                             price={price}
+                            checkout={checkout}
                             handleProcessing={handleProcessing}
                         />
                     </Elements>
                 </div>
                 <Row className="p-5 mt-5 mb-5 paypal_content">
-                    <Col sm={12} md={6} lg={6} xl={6} >
+                    <Col sm={12} md={7} lg={7} xl={7} >
                         <div className="form-check">
-                            <input onClick={() => setCheckout({ paypal: "paypal" })} className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <input onClick={() => setCheckout(
+                                { paypal: "paypal", credit: '' })
+                            }
+                                className="form-check-input"
+                                type="radio" name="inlineRadioOptions"
+                                id="inlineRadio2" value="option2" />
                             <label className="form-check-label" htmlFor="inlineRadio2">
                                 <h4>Paypal</h4>
                             </label>
                             <p className="pt-4 text_colors">You well be redirected to PayPal website to complete your purchase securely...</p>
                         </div>
                     </Col>
-                    <Col sm={12} md={6} lg={6} xl={6} xs={4}>
+                    <Col sm={12} md={5} lg={5} xl={5}>
                         {checkout.paypal ? <Paypal price={price} />
                             : <img src="https://tse3.mm.bing.net/th?id=OIP.5WodCMcfWx9Gq8jWPTrmGQHaC4&pid=Api&P=0&w=474&h=185" width='200' className="d-flux justify-content-center" alt="" />}
                     </Col>

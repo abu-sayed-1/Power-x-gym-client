@@ -12,8 +12,6 @@ const ClassSchedule = () => {
     const { id } = useParams();
     const [classSchedule, setClassSchedule] = useState(null);
     const [classScheduleData, setClassScheduleData] = useState(null);
-    console.log(classScheduleData, 'data')
-
     useEffect(() => {
         fetch(`https://guarded-meadow-19744.herokuapp.com/checkout${id}`)
             .then(res => res.json())
@@ -43,10 +41,13 @@ const ClassSchedule = () => {
                         <>
                             <h1 className=""><span className="class pt-sm-5">CLASS</span> SCHEDULE</h1>
                             {
-                                classSchedule[0].daysAndTimes.map(item => <div className="shadow rounded p-4 m-1" key={item.id}>
-                                    <h4>{item.dayTime.day}</h4>
-                                    <p className="time_list">{item.dayTime.time}</p>
-                                </div>)
+                                classSchedule[0].daysAndTimes.map(item =>
+                                    <div key={item.id}
+                                        className="shadow rounded p-4 m-1"
+                                    >
+                                        <h4>{item.dayTime.day}</h4>
+                                        <p className="time_list">{item.dayTime.time}</p>
+                                    </div>)
                             }
                         </>
                     </Col>

@@ -1,42 +1,18 @@
-.main_container {
-    display: grid;
-    justify-content: center;
-    align-self: center;
-    margin-top: 6rem;
-}
-
-.brand_logo {
-    display: grid;
-    justify-content: center;
-
-}
-
-.login_container {
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    position: relative;
-    min-width: 570px;
-    max-width: auto;
-    height: 457px;
-    border: 1px solid #ABABAB;
-    box-sizing: border-box;
-    border-radius: 4px;
-}
-
-.main_container button {
-    width: 26rem;
-    height: 45px;
-    border-radius: 20px;
-    border: 1px solid rgba(196, 218, 233, 0.918);
+.google_btn {
     outline: none !important;
+    background-color: #00bfa6;
+}
+
+.google_btn:hover {
+    background-color: #00bfa6e0;
 }
 
 .googleIcon {
-    width: 30px;
+    width: 43px;
     float: left;
 }
 
-.login_container span {
-    font-size: 20px;
+#google_title{
+    font-size: 18px;
+    font-weight: 500;
 }

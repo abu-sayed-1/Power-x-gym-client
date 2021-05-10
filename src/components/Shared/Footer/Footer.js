@@ -1,8 +1,15 @@
 import React from 'react';
-import "./Footer.css"
+import "./Footer.css";
 import { Col, Container, Navbar, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faTwitterSquare, faLinkedin, faGithub, faYoutube, faInstagram, faMessenger } from "@fortawesome/free-brands-svg-icons"
+import {
+    faFacebookF,
+    faTwitterSquare,
+    faLinkedin,
+    faGithub,
+    faYoutube,
+    faInstagram
+} from "@fortawesome/free-brands-svg-icons";
 
 
 const Footer = () => {
@@ -37,10 +44,7 @@ const Footer = () => {
                                 <a href="//youtube.com"> <FontAwesomeIcon className="ml-3 text-white media_icon" icon={faYoutube} /></a>
                                 <a href="//instagram.com"> <FontAwesomeIcon className="ml-3 text-white media_icon" icon={faInstagram} /></a>
                             </div>
-
                             <p className="text-white">Forum</p>
-
-
                         </Col>
                         <Col>
                             <h5 className="text-white">Join Our Newsletter</h5>

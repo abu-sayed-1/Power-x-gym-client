@@ -9,6 +9,8 @@
 }
 
 .paypal_content {
+    margin-right: .25rem!important;
+    margin-left: .25rem!important;
     border: 2px solid #90909060;
     border-radius: 2px;
     -webkit-border-radius: 2px;

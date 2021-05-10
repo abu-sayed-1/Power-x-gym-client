@@ -10,16 +10,16 @@ import { NavLink } from 'react-router-dom';
 
 const ChooseCourse = () => {
     const [course, setCourse] = useState(null);
-
     useEffect(() => {
         fetch('https://guarded-meadow-19744.herokuapp.com/chooseCourseData')
             .then(res => res.json())
             .then(data => setCourse(data));
-    }, [])
+    }, []);
+
     return (
         <>
             <section className="header_main mb-5">
-                <div className=" overly">
+                <div className="overly">
                     <NavBar />
                     <h2 className="text-white text-center">PRICING PLANS</h2>
                 </div>

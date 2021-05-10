@@ -20,7 +20,7 @@ const HeaderMain = () => {
                     </Col>
                     <Col sm={12} md={6} lg={6} xl={6} className="mt-lg-5 pt-lg-3">
                         <Video />
-                         </Col>
+                    </Col>
                 </Row>
             </div>
         </main>

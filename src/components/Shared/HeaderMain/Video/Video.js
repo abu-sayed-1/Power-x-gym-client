@@ -9,7 +9,7 @@ const Video = () => {
     return (
         <div className="embed-responsive embed-responsive-16by9">
             <VideoPlayer
-                className="embed-responsive-item video"
+                className="embed-responsive-item"
                 src={videoSrc}
                 poster={poster}
             />
