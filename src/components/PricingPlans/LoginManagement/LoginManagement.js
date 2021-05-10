@@ -7,8 +7,7 @@ import 'firebase/auth';
 import firebaseConfig from './firebase.config'
 import { useHistory, useLocation } from 'react-router-dom';
 import { Col, Container, Row, } from "react-bootstrap";
-//DjJFSFs_skkd()263LYdjIdk4#@(*hggg&&HtCPhE&&^^^LKOJjh
-//DjJFSFs_skkd()263LYdjIdk4#@(*hggg&&HtCPhE&&^^^LKOJj33
+
 const LoginManagement = () => {
     const history = useHistory();
     const location = useLocation()
