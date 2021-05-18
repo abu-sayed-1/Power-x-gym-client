@@ -19,7 +19,7 @@ const CoursesList = () => {
 
     const history = useHistory();
     const handleCourseDetail = (id) => {
-        history.push(`/specificId${id}`)
+        history.push(`/classSchedule${id}`)
     }
 
     return (

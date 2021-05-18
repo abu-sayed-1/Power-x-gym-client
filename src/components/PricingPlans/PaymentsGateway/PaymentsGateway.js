@@ -3,7 +3,7 @@ import './PaymentsGateway.css';
 import amex from '../../../images/ImageAndIcon/credit-cards_amex.png';
 import mastercard from '../../../images/ImageAndIcon/credit-cards_mastercard.png';
 import visaCard from '../../../images/ImageAndIcon/credit-cards_visa.png';
-import { Button, Col, Container, Row, Spinner } from 'react-bootstrap';
+import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import Footer from '../../Shared/Footer/Footer';
 import NavBar from '../../Shared/Navbar/NavBar';
 import Paypal from './Paypal/Paypal';
@@ -23,7 +23,7 @@ const PaymentsGateway = () => {
     const [checkout, setCheckout] = useState({ paypal: '', credit: '' });
     const [process, setProcess] = useState(false);
     const stripePromise = loadStripe("pk_test_51HaKX2FWzFyXdW5KjdYVQtPEcdPZOSLq0nvfi4MfePscvZAop5VwXrGvH9Z0XjenRtpUwNFsX07um8rLzI8yrrB600opOV9Hw9");
-    const price = sessionStorage.getItem('purchaseId').substring(1);
+    const price = sessionStorage.getItem('purchase').substring(1);
 
     const handleProcessing = isProcess => {
         setProcess(isProcess);
@@ -121,7 +121,7 @@ const PaymentsGateway = () => {
                                 variant="black"
                                 className="mr-3"
                             />
-                            NEXT...
+                            NEXT
                         </button>
                         : <>
                             {
@@ -131,7 +131,7 @@ const PaymentsGateway = () => {
                                     form="stripePaymentBtn"
                                     type="submit"
                                 >
-                                    NEXT..
+                                    NEXT
                             </button>
                             }
                         </>}

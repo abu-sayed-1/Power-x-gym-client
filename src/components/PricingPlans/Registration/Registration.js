@@ -9,7 +9,7 @@ import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom';
 
 const Registration = () => {
-    const userEmail = sessionStorage.getItem('userEmail');
+    const userInfo = sessionStorage.getItem('userInfo');
     const { register, handleSubmit, errors } = useForm();
     const history = useHistory();
     const onSubmit = data => {
@@ -50,18 +50,36 @@ const Registration = () => {
                             />
                             {errors.firstName?.type === "required" && <span style={{ color: 'red' }}>  <FontAwesomeIcon icon={faExclamationTriangle} />  First name is required</span>}
                             {errors.firstName?.type === "minLength" && <span style={{ color: 'red' }}>  <FontAwesomeIcon icon={faExclamationTriangle} /> Minimum Two Characters</span>}
+                            {
+                                userInfo !== "token" ? <>
+                                    <p>Email</p>
+                                    <Form.Control
+                                        value={userInfo}
+                                        className="p_2"
+                                        type="email" name="email"
+                                        placeholder="Enter You Email"
+                                    />
+                                </> : <>
+                                    <p>Email</p>
+                                    <Form.Control
+                                        ref={
+                                            register({
+                                                required: true,
+                                                pattern: /\S+@\S+\.\S+/
+                                            })
+                                        }
+                                        className="p_2"
+                                        type="email" name="email"
+                                        placeholder="Enter You Email"
+                                    />
+                                    {errors.email?.type === "required" && <span className="text-danger">
+                                        <FontAwesomeIcon icon={faExclamationTriangle} />  Email is required</span>}
+                                    {errors.email?.type === "pattern" && <span className="text-danger">
+                                        <FontAwesomeIcon icon={faExclamationTriangle} /> example@gmail.com</span>}
 
-                            <p>Email</p>
-                            <Form.Control
-                                value={userEmail}
-                                ref={
-                                    register({
-                                        required: true,
-                                    })
-                                }
-                                className="p_2" type="email" name="email" placeholder="Enter You Email"
-                            />
-                            {errors.email?.type === "required" && <span style={{ color: 'red' }}> <FontAwesomeIcon icon={faExclamationTriangle} /> Email is required</span>}
+
+                                </>
+                            }
 
                             <p>Date Of Birth</p>
                             <Form.Control

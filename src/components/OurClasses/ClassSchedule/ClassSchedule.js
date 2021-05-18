@@ -19,7 +19,7 @@ const ClassSchedule = () => {
     }, [id]);
 
     useEffect(() => {
-        fetch(`https://guarded-meadow-19744.herokuapp.com/classScheduleSpecificData`)
+        fetch("https://guarded-meadow-19744.herokuapp.com/classScheduleSpecificData")
             .then(res => res.json())
             .then(data => setClassScheduleData(data))
     }, []);
@@ -35,11 +35,16 @@ const ClassSchedule = () => {
             <Container className="mb-5">
                 {classSchedule ? <Row>
                     <Col sm={12} md={6} lg={6} xl={6}>
-                        <img className="img-fluid" src={classSchedule[0].img} alt="" />
+                        <img className="img-fluid w-100"
+                            src={classSchedule[0].img} alt=""
+                        />
                     </Col>
                     <Col sm={12} md={6} lg={6} xl={6}>
                         <>
-                            <h1 className=""><span className="class pt-sm-5">CLASS</span> SCHEDULE</h1>
+                            <h1 className="">
+                                <span className="class pt-sm-5">CLASS</span>
+                                 SCHEDULE
+                            </h1>
                             {
                                 classSchedule[0].daysAndTimes.map(item =>
                                     <div key={item.id}
@@ -51,25 +56,31 @@ const ClassSchedule = () => {
                             }
                         </>
                     </Col>
-                </Row> : 'Loading....'}
+                </Row> : ''}
                 {
                     classScheduleData ? <div>
                         <Row>
                             <Col sm={12} md={6} lg={6} xl={6}>
-                                <p className="mt-4 classSchedule_description">{classScheduleData[0].description}</p>
+                                <p className="mt-4 classSchedule_description">
+                                    {classScheduleData[0].description}
+                                </p>
                                 {
                                     classScheduleData[0].advantage.map(item => <div className="mt-4 pt-1" key={item.id}>
                                         <h5><FontAwesomeIcon className="square_icon mr-4" icon={faCheckSquare} />{item.convenience}</h5>
                                     </div>)
                                 }
                             </Col>
-                            <Col sm={12} md={6} lg={6} xl={6} className=" d-flex justify-content-md-end justify-content-sm-center align-items-end">
+                            <Col sm={12} md={6} lg={6} xl={6} className="
+                                d-flex justify-content-md-end 
+                                justify-content-sm-center 
+                                align-items-end"
+                            >
                                 <NavLink to="/chooseCourse">
                                     <button className="brand_btn">JOIN US</button>
                                 </NavLink>
                             </Col>
                         </Row>
-                    </div> : 'Loading...'
+                    </div> : ''
                 }
             </Container>
             <Footer />

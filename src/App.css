@@ -18,6 +18,12 @@
   box-sizing: border-box;
 }
 
+.coursesLink{
+  font-weight: 500;
+   float: right;
+   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 .purchase_btn {
   border: none;
   outline: none !important;

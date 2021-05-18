@@ -12,8 +12,8 @@ import ChooseCourse from './components/PricingPlans/ChooseCourse/ChooseCourse';
 import Registration from './components/PricingPlans/Registration/Registration';
 import PaymentsGateway from './components/PricingPlans/PaymentsGateway/PaymentsGateway';
 import MembershipCreated from './components/PricingPlans/MembershipCreated/MembershipCreated';
-import LoginManagement from './components/PricingPlans/LoginManagement/LoginManagement';
 import PrivateRoute from './components/PricingPlans/PrivateRoute/PrivateRoute';
+import Login from './components/PricingPlans/LoginManagement/Login';
 function App() {
   return (
     <Router>
@@ -27,7 +27,7 @@ function App() {
         <Route path="/coursesList">
           <CoursesList />
         </Route>
-        <Route path="/specificId:id">
+        <Route path="/classSchedule:id">
           <ClassSchedule />
         </Route>
         <Route path="/chooseCourse">
@@ -42,8 +42,8 @@ function App() {
         <PrivateRoute path="/registration">
           <Registration />
         </PrivateRoute>
-        <Route path="/loginManagement">
-          <LoginManagement />
+        <Route path="/login">
+          <Login />
         </Route>
         <Route path="*">
           <PageNotFound />

@@ -1,0 +1,37 @@
+.home_link {
+    color: rgba(0, 0, 0, 0.849) !important;
+}
+
+.signUp_title {
+    font-weight: 600;
+}
+
+.google_btn {
+    outline: none !important;
+    background-color: #00bfa6;
+}
+
+.google_btn:hover {
+    background-color: #00bfa6e0;
+}
+
+.googleIcon {
+    width: 45px;
+    float: left;
+}
+
+.FbIcon {
+    width: 50px;
+    float: left;
+}
+
+#google_title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* @media only screen and (min-width: 1024px) and (max-width: 1366px) {
+    .loginBg_img {
+        height: 64.5rem !important;
+    }
+} */
