@@ -1,6 +1,5 @@
 import React from 'react';
 import './MembershipCreated.css';
-// import Membership from "../../../images/ImageAndIcon/completed.png"
 
 const MembershipCreated = () => {
     return (

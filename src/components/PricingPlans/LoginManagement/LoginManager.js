@@ -41,10 +41,5 @@ export const handleFBSignIn = () => {
         })
         .catch(error => {
             return error
-            // console.log(error)
-            // var errorCode = error.code;
-            // var errorMessage = error.message;
-            // var email = error.email;
-            // var credential = error.credential;
         });
 };

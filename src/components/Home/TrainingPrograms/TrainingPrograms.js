@@ -5,10 +5,6 @@ import { NavLink } from 'react-router-dom';
 
 const TrainingPrograms = ({ TrainingData }) => {
     const history = useHistory();
-    // const handleCourseDetail = (id) => {
-    //     history.push(`/specificId${id}`)
-    // }
-
     const handleTrainingDetail = id => {
         history.push(`/classSchedule${id}`);
     }
