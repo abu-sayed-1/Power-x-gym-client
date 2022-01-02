@@ -22,7 +22,7 @@ const creditCardImages = [
 const PaymentsGateway = () => {
     const [checkout, setCheckout] = useState({ paypal: '', credit: '' });
     const [process, setProcess] = useState(false);
-    const stripePromise = loadStripe("pk_test_51HaKX2FWzFyXdW5KjdYVQtPEcdPZOSLq0nvfi4MfePscvZAop5VwXrGvH9Z0XjenRtpUwNFsX07um8rLzI8yrrB600opOV9Hw9");
+    const stripePromise = loadStripe("******");
     const price = sessionStorage.getItem('purchase').substring(1);
 
     const handleProcessing = isProcess => {

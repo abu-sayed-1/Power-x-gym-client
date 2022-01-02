@@ -2,7 +2,7 @@
 
 [**visit-website**](https://power-x-gym-f0cc5.web.app/)
 
-![power-x-gym-demo](https://github.com/abu-sayed-1/Power-x-gym-client/tree/main/src/images/power-x-gym.gif)
+![power-x-gym-demo](https://i.ibb.co/xJrthS8/powerx-1.png)
 
 power-x-gym is a fitness studio. user can see all training programs And user can view the class schedule by selecting specific training. and also implemented signUp, pricing plan, authentication, payment method, and much more...
 
